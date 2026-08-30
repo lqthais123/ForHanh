@@ -71,3 +71,60 @@ main {
 
     opacity: 0.8;
 }
+.enter-button {
+    display: inline-block;
+
+    margin-top: 42px;
+
+    padding: 12px 24px;
+
+    border: 1px solid rgba(31, 31, 31, 0.35);
+
+    color: #1f1f1f;
+
+    text-decoration: none;
+
+    font-size: 12px;
+
+    letter-spacing: 0.08em;
+
+    transition:
+        opacity 0.3s ease,
+        transform 0.3s ease;
+}
+
+.enter-button:hover {
+    opacity: 0.6;
+}
+
+.enter-button:active {
+    transform: scale(0.97);
+}
+
+.eyebrow {
+    margin-bottom: 24px;
+
+    font-size: 10px;
+
+    letter-spacing: 0.2em;
+
+    opacity: 0.4;
+}
+
+.pieces-title {
+    font-size: 30px;
+
+    font-weight: 400;
+
+    letter-spacing: -0.03em;
+
+    margin-bottom: 18px;
+}
+
+.pieces-intro {
+    font-size: 13px;
+
+    letter-spacing: 0.05em;
+
+    opacity: 0.45;
+}
