@@ -22,7 +22,7 @@ body {
         sans-serif;
 }
 
-.home {
+.record-page {
     min-height: 100vh;
 
     display: flex;
@@ -32,54 +32,98 @@ body {
     padding: 32px;
 }
 
-.content {
+.record {
     width: 100%;
     max-width: 420px;
 
     text-align: center;
 }
 
-.eyebrow {
-    margin-bottom: 24px;
+.record-number {
+    margin-bottom: 22px;
 
-    font-size: 10px;
-    letter-spacing: 0.25em;
+    font-size: 11px;
+    letter-spacing: 0.2em;
 
     opacity: 0.45;
 }
 
-h1 {
-    margin-bottom: 24px;
+#record-title {
+    margin-bottom: 60px;
 
-    font-size: 48px;
+    font-size: 32px;
     font-weight: 400;
 
-    letter-spacing: -0.04em;
+    letter-spacing: -0.03em;
 }
 
-.intro {
-    margin-bottom: 42px;
+.player {
+    display: flex;
+    align-items: center;
 
-    font-size: 14px;
-    line-height: 1.8;
+    gap: 18px;
 
-    opacity: 0.65;
+    width: 100%;
+
+    margin-bottom: 45px;
 }
 
-.enter {
-    display: inline-block;
+.play-button {
+    width: 52px;
+    height: 52px;
 
-    color: inherit;
-    text-decoration: none;
+    flex-shrink: 0;
 
+    border: 1px solid #1c1c1c;
+    border-radius: 50%;
+
+    background: transparent;
+    color: #1c1c1c;
+
+    font-size: 16px;
+
+    cursor: pointer;
+}
+
+.play-button:active {
+    transform: scale(0.95);
+}
+
+.progress-container {
+    flex: 1;
+}
+
+.time-row {
+    display: flex;
+    justify-content: space-between;
+
+    margin-bottom: 7px;
+
+    font-size: 10px;
+
+    opacity: 0.45;
+}
+
+.progress-bar {
+    width: 100%;
+    height: 2px;
+
+    background: rgba(28, 28, 28, 0.15);
+
+    overflow: hidden;
+}
+
+.progress {
+    width: 0%;
+    height: 100%;
+
+    background: #1c1c1c;
+}
+
+.message {
     font-size: 12px;
-    letter-spacing: 0.15em;
 
-    border-bottom: 1px solid currentColor;
+    letter-spacing: 0.05em;
 
-    padding-bottom: 6px;
-}
-
-.enter:active {
-    opacity: 0.5;
+    opacity: 0.45;
 }
