@@ -131,7 +131,13 @@ const records = {
 
 const params = new URLSearchParams(window.location.search);
 
-const id = params.get("id");
+const rawId = params.get("id");
+
+let id = rawId;
+
+if (rawId && rawId !== "last") {
+    id = rawId.padStart(2, "0");
+}
 
 const record = records[id];
 
