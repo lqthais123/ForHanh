@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
 
@@ -15,32 +16,68 @@
 
 <body>
 
-    <main class="home">
+    <main class="record-page">
 
-        <div class="content">
+        <div class="record">
 
-            <p class="eyebrow">
-                FOR HANH
+            <p id="record-number" class="record-number">
+                01
             </p>
 
-            <h1>
-                For you.
+            <h1 id="record-title">
+                The Beginning
             </h1>
 
-            <p class="intro">
-                20 little pieces of me,<br>
-                for the days I'm not there.
-            </p>
+            <div class="player">
 
-            <a href="/01" class="enter">
-                Enter
-            </a>
+                <button
+                    id="play-button"
+                    class="play-button"
+                    aria-label="Play"
+                >
+                    ▶
+                </button>
+
+                <div class="progress-container">
+
+                    <div class="time-row">
+
+                        <span id="current-time">
+                            00:00
+                        </span>
+
+                        <span id="duration">
+                            00:00
+                        </span>
+
+                    </div>
+
+                    <div
+                        id="progress-bar"
+                        class="progress-bar"
+                    >
+                        <div
+                            id="progress"
+                            class="progress"
+                        ></div>
+                    </div>
+
+                </div>
+
+            </div>
+
+            <p class="message">
+                Take your time.
+            </p>
 
         </div>
 
     </main>
 
+    <audio id="audio"></audio>
+
     <script src="script.js"></script>
 
 </body>
+
 </html>
