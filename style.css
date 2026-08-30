@@ -128,3 +128,90 @@ main {
 
     opacity: 0.45;
 }
+.pieces-container {
+    width: 100%;
+    max-width: 520px;
+
+    margin: 0 auto;
+
+    padding: 70px 24px;
+}
+
+.pieces-container .eyebrow {
+    margin-bottom: 24px;
+}
+
+.pieces-list {
+    margin-top: 55px;
+
+    border-top: 1px solid rgba(31, 31, 31, 0.12);
+}
+
+.piece {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    width: 100%;
+
+    padding: 18px 0;
+
+    border-bottom: 1px solid rgba(31, 31, 31, 0.12);
+
+    color: #1f1f1f;
+
+    text-decoration: none;
+
+    transition:
+        opacity 0.25s ease,
+        padding 0.25s ease;
+}
+
+.piece:hover {
+    opacity: 0.55;
+
+    padding-left: 5px;
+    padding-right: 5px;
+}
+
+.piece-number {
+    font-size: 10px;
+
+    letter-spacing: 0.12em;
+
+    opacity: 0.4;
+}
+
+.piece-name {
+    font-size: 14px;
+
+    letter-spacing: 0.01em;
+
+    font-weight: 400;
+}
+
+.piece .piece-number {
+    min-width: 30px;
+
+    text-align: left;
+}
+
+.piece .piece-name {
+    flex: 1;
+
+    text-align: left;
+}
+
+.last-piece {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    margin-top: 65px;
+
+    padding-top: 20px;
+
+    border-top: 1px solid rgba(31, 31, 31, 0.2);
+
+    opacity: 0.7;
+}
