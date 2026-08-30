@@ -1,3 +1,4 @@
+alert("ForHanh JavaScript is working!");
 const records = {
     "01": {
         title: "The Beginning",
