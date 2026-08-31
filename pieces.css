@@ -1,11 +1,12 @@
 /* =========================================================
-   FOR HANH — PIECES PAGE
-   29 + 1
+   FOR HANH
+   30 pieces of me.
+   MASTER STYLE
    ========================================================= */
 
 
 /* =========================================================
-   RESET
+   01. RESET
    ========================================================= */
 
 * {
@@ -14,14 +15,17 @@
     padding: 0;
 }
 
-html {
+html,
+body {
     width: 100%;
     min-height: 100%;
+}
+
+html {
     background: #f7f4ef;
 }
 
 body {
-    width: 100%;
     min-height: 100vh;
 
     background: #f7f4ef;
@@ -42,7 +46,7 @@ body {
 
 
 /* =========================================================
-   PAPER TEXTURE
+   02. PAPER TEXTURE
    ========================================================= */
 
 body::before {
@@ -51,79 +55,109 @@ body::before {
     position: fixed;
     inset: 0;
 
+    width: 100%;
+    height: 100%;
+
     pointer-events: none;
 
-    opacity: 0.035;
+    z-index: 9999;
+
+    opacity: 0.025;
 
     background-image:
-        url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.45'/%3E%3C/svg%3E");
-
-    z-index: 999;
+        url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='.5'/%3E%3C/svg%3E");
 }
 
 
 /* =========================================================
-   PAGE
+   03. PAGE FADE
    ========================================================= */
 
-.pieces-page {
-    width: 100%;
-    max-width: 560px;
-
-    min-height: 100vh;
-
-    margin: 0 auto;
-
-    padding:
-        70px 28px
-        100px;
-
-    text-align: center;
-
-    animation:
-        pageFadeIn 1.8s ease both;
+.home-page,
+.pieces-page,
+.record-page {
+    animation: pageFadeIn 1.8s ease both;
 }
 
 @keyframes pageFadeIn {
 
     from {
         opacity: 0;
-        transform: translateY(8px);
     }
 
     to {
         opacity: 1;
-        transform: translateY(0);
     }
 
 }
 
 
 /* =========================================================
-   HEADER
+   04. HOMEPAGE
    ========================================================= */
 
-.pieces-header {
+/*
+   IMPORTANT:
+   Homepage is completely independent from the pieces layout.
+*/
+
+.home-page {
+
+    position: relative;
+
     width: 100%;
+    min-height: 100vh;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    text-align: center;
+
+    padding: 40px 24px;
+}
+
+
+/* Main homepage content */
+
+.home-content {
+
+    width: 100%;
+    max-width: 520px;
+
+    margin: 0 auto;
+
+    display: flex;
+    flex-direction: column;
+
+    align-items: center;
+    justify-content: center;
 
     text-align: center;
 }
 
 
-.eyebrow {
-    margin-bottom: 30px;
+/* Small heading */
+
+.home-content .eyebrow {
+
+    margin-bottom: 28px;
 
     font-size: 10px;
     font-weight: 400;
 
-    letter-spacing: 0.30em;
+    letter-spacing: 0.34em;
 
     opacity: 0.38;
 }
 
 
-.pieces-title {
-    margin-bottom: 18px;
+/* Main title */
+
+.home-content .title {
+
+    margin: 0 0 16px;
 
     font-family:
         Georgia,
@@ -131,54 +165,291 @@ body::before {
         Times,
         serif;
 
-    font-size:
-        clamp(38px, 10vw, 54px);
+    font-size: clamp(48px, 14vw, 72px);
+
+    font-weight: 400;
+
+    line-height: 1;
+
+    letter-spacing: -0.055em;
+
+    text-align: center;
+}
+
+
+/* Signature */
+
+.home-content .signature {
+
+    margin: 0 0 48px;
+
+    font-size: 12px;
+
+    line-height: 1.6;
+
+    letter-spacing: 0.08em;
+
+    opacity: 0.48;
+
+    text-align: center;
+}
+
+
+/* Divider */
+
+.home-content .divider {
+
+    width: 42px;
+    height: 1px;
+
+    margin: 0 auto 40px;
+
+    background: rgba(31, 31, 31, 0.22);
+}
+
+
+/* Tagline */
+
+.home-content .tagline {
+
+    margin: 0;
+
+    font-size: 16px;
+
+    line-height: 1.8;
+
+    font-weight: 400;
+
+    letter-spacing: -0.01em;
+
+    opacity: 0.72;
+
+    text-align: center;
+}
+
+.home-content .tagline span {
+    opacity: 0.72;
+}
+
+
+/* ENTER */
+
+.enter-link {
+
+    display: inline-flex;
+
+    align-items: center;
+    justify-content: center;
+
+    margin-top: 38px;
+
+    color: #1f1f1f;
+
+    text-decoration: none;
+
+    font-size: 11px;
+
+    font-weight: 400;
+
+    letter-spacing: 0.2em;
+
+    transition:
+        opacity 0.3s ease;
+}
+
+
+/* Arrow */
+
+.enter-link .arrow {
+
+    display: inline-block;
+
+    margin-left: 10px;
+
+    font-size: 17px;
+
+    letter-spacing: 0;
+
+    transition:
+        transform 0.35s ease;
+}
+
+
+/* Hover */
+
+.enter-link:hover {
+    opacity: 0.55;
+}
+
+.enter-link:hover .arrow {
+    transform: translateX(6px);
+}
+
+
+/* Bottom note */
+
+.home-page .bottom-note {
+
+    position: absolute;
+
+    left: 0;
+    right: 0;
+
+    bottom: 28px;
+
+    width: 100%;
+
+    text-align: center;
+
+    font-size: 9px;
+
+    letter-spacing: 0.18em;
+
+    text-transform: lowercase;
+
+    opacity: 0.32;
+}
+
+
+/* =========================================================
+   05. PIECES / MENU PAGE
+   ========================================================= */
+
+/*
+   This page is intentionally independent
+   from the homepage.
+*/
+
+.pieces-page {
+
+    width: 100%;
+    min-height: 100vh;
+
+    padding: 70px 24px 70px;
+
+    display: block;
+}
+
+
+/* Menu wrapper */
+
+.pieces-menu {
+
+    width: 100%;
+    max-width: 520px;
+
+    margin: 0 auto;
+
+    text-align: center;
+}
+
+
+/* =========================================================
+   06. PIECES HEADER
+   ========================================================= */
+
+.pieces-header {
+
+    width: 100%;
+
+    margin-bottom: 56px;
+
+    text-align: center;
+}
+
+
+/* FOR HANH */
+
+.pieces-header .eyebrow {
+
+    margin-bottom: 22px;
+
+    font-size: 10px;
+
+    font-weight: 400;
+
+    letter-spacing: 0.32em;
+
+    opacity: 0.38;
+
+    text-align: center;
+}
+
+
+/* 30 pieces of me */
+
+.pieces-header .pieces-title {
+
+    margin-bottom: 16px;
+
+    font-family:
+        Georgia,
+        "Times New Roman",
+        Times,
+        serif;
+
+    font-size: clamp(38px, 10vw, 52px);
 
     font-weight: 400;
 
     line-height: 1.05;
 
     letter-spacing: -0.045em;
+
+    text-align: center;
 }
 
 
-.pieces-intro {
-    font-size: 13px;
+/* Intro */
+
+.pieces-header .pieces-intro {
+
+    font-size: 12px;
 
     line-height: 1.6;
 
     letter-spacing: 0.05em;
 
-    opacity: 0.48;
+    opacity: 0.45;
+
+    text-align: center;
 }
 
 
 /* =========================================================
-   MENU
+   07. PIECES LIST
    ========================================================= */
 
-.pieces-menu {
+.pieces-list {
+
     width: 100%;
 
-    margin-top: 58px;
+    margin: 0 auto;
 
     border-top:
         1px solid rgba(31, 31, 31, 0.12);
 }
 
 
-/* =========================================================
-   PIECE ROW
-   ========================================================= */
+/*
+   IMPORTANT:
 
-.piece-row {
+   .piece is NOT a link.
+
+   No arrow.
+   No cursor animation.
+   No padding movement.
+*/
+
+.piece {
+
     width: 100%;
 
     min-height: 58px;
 
     display: grid;
 
-    grid-template-columns: 42px 1fr;
+    grid-template-columns: 58px 1fr;
 
     align-items: center;
 
@@ -189,54 +460,125 @@ body::before {
 }
 
 
-/* Number */
+/* Number / LAST column */
 
 .piece-number {
+
+    width: 58px;
+
+    padding-left: 0;
+
     font-size: 10px;
 
     font-weight: 400;
 
     letter-spacing: 0.12em;
 
-    opacity: 0.38;
-
     text-align: left;
+
+    opacity: 0.38;
 }
 
 
-/* Name */
+/* Piece name */
 
 .piece-name {
+
+    width: 100%;
+
+    padding-left: 0;
+
     font-size: 14px;
 
     font-weight: 400;
 
+    line-height: 1.4;
+
     letter-spacing: 0.01em;
 
     text-align: left;
+
+    color: #1f1f1f;
 }
 
 
 /* =========================================================
-   LAST
+   08. LAST
    ========================================================= */
 
-.last-piece {
+/*
+   LAST stays INSIDE the same list.
+
+   Left column:
+       LAST
+
+   Right column:
+       there is one more thing
+*/
+
+.piece.last-piece {
+
+    margin: 0;
+
+    padding: 0;
+
+    border-top: none;
+
+    opacity: 1;
+
+    transform: none;
+}
+
+
+/* Last label */
+
+.last-piece .piece-number {
+
+    font-size: 10px;
+
+    letter-spacing: 0.16em;
+
+    opacity: 0.45;
+}
+
+
+/* Last title */
+
+.last-piece .piece-name {
+
+    font-family:
+        Georgia,
+        "Times New Roman",
+        Times,
+        serif;
+
+    font-size: 16px;
+
+    line-height: 1.4;
+
+    letter-spacing: -0.01em;
+}
+
+
+/* =========================================================
+   09. MENU FOOTER
+   ========================================================= */
+
+.pieces-footer {
+
     width: 100%;
 
-    margin-top: 85px;
-
-    padding-top: 34px;
-
-    border-top:
-        1px solid rgba(31, 31, 31, 0.20);
+    margin-top: 56px;
 
     text-align: center;
 }
 
 
-.last-label {
-    margin-bottom: 22px;
+/* 30 pieces of me */
+
+.pieces-footer .footer-main {
+
+    margin-bottom: 8px;
 
     font-family:
         Georgia,
@@ -244,142 +586,437 @@ body::before {
         Times,
         serif;
 
-    font-size: 26px;
+    font-size: 17px;
 
     font-weight: 400;
 
-    letter-spacing: -0.025em;
+    letter-spacing: -0.01em;
+
+    opacity: 0.7;
 }
 
 
-.last-message {
-    margin-bottom: 58px;
+/* For Hanh */
 
-    font-size: 12px;
+.pieces-footer .footer-sub {
 
-    letter-spacing: 0.10em;
+    font-size: 10px;
 
-    opacity: 0.48;
-}
+    letter-spacing: 0.2em;
 
+    text-transform: uppercase;
 
-.last-slogan {
-    margin-bottom: 9px;
-
-    font-family:
-        Georgia,
-        "Times New Roman",
-        Times,
-        serif;
-
-    font-size: 20px;
-
-    font-weight: 400;
-
-    letter-spacing: -0.02em;
-}
-
-
-.last-for {
-    font-size: 11px;
-
-    letter-spacing: 0.16em;
-
-    opacity: 0.48;
+    opacity: 0.38;
 }
 
 
 /* =========================================================
-   MOBILE
+   10. RECORD PAGE
+   ========================================================= */
+
+.record-page {
+
+    position: relative;
+
+    width: 100%;
+    min-height: 100vh;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    padding: 32px 24px;
+}
+
+
+/* Record content */
+
+.record-content {
+
+    width: 100%;
+    max-width: 520px;
+
+    margin: 0 auto;
+
+    text-align: center;
+}
+
+
+/* Back */
+
+.back-button {
+
+    position: absolute;
+
+    top: 28px;
+    left: 24px;
+
+    display: inline-flex;
+
+    align-items: center;
+    justify-content: center;
+
+    width: 36px;
+    height: 36px;
+
+    color: #1f1f1f;
+
+    text-decoration: none;
+
+    font-size: 18px;
+
+    opacity: 0.45;
+
+    transition:
+        opacity 0.3s ease,
+        transform 0.3s ease;
+}
+
+.back-button:hover {
+
+    opacity: 1;
+
+    transform: translateX(-3px);
+}
+
+
+/* Record number */
+
+.record-number {
+
+    margin-bottom: 18px;
+
+    font-size: 10px;
+
+    letter-spacing: 0.28em;
+
+    opacity: 0.4;
+
+    text-align: center;
+}
+
+
+/* Record title */
+
+.record-title {
+
+    margin-bottom: 16px;
+
+    font-family:
+        Georgia,
+        "Times New Roman",
+        Times,
+        serif;
+
+    font-size: clamp(38px, 10vw, 56px);
+
+    font-weight: 400;
+
+    line-height: 1.05;
+
+    letter-spacing: -0.045em;
+
+    text-align: center;
+}
+
+
+/* Description */
+
+.record-description {
+
+    max-width: 320px;
+
+    margin: 0 auto 48px;
+
+    font-size: 13px;
+
+    line-height: 1.65;
+
+    letter-spacing: 0.03em;
+
+    opacity: 0.48;
+
+    text-align: center;
+}
+
+
+/* Audio */
+
+.audio-container {
+
+    width: 100%;
+
+    display: flex;
+
+    justify-content: center;
+}
+
+.audio-container audio {
+
+    display: block;
+
+    width: 100%;
+
+    max-width: 360px;
+
+    height: 42px;
+}
+
+
+/* =========================================================
+   11. MOBILE
    ========================================================= */
 
 @media (max-width: 600px) {
 
-    .pieces-page {
+
+    /* -------------------------
+       HOMEPAGE
+       ------------------------- */
+
+    .home-page {
+
         padding:
-            58px 28px
-            80px;
+            32px 24px;
     }
 
 
-    .eyebrow {
-        margin-bottom: 27px;
+    .home-content {
+
+        max-width: 100%;
     }
 
 
-    .pieces-title {
-        font-size: 42px;
+    .home-content .eyebrow {
+
+        margin-bottom: 24px;
     }
 
 
-    .pieces-intro {
-        font-size: 12px;
+    .home-content .title {
+
+        font-size: 50px;
+    }
+
+
+    .home-content .signature {
+
+        margin-bottom: 44px;
+
+        font-size: 11px;
+    }
+
+
+    .home-content .divider {
+
+        margin-bottom: 34px;
+    }
+
+
+    .home-content .tagline {
+
+        font-size: 15px;
+
+        line-height: 1.8;
+    }
+
+
+    .enter-link {
+
+        margin-top: 34px;
+    }
+
+
+    .home-page .bottom-note {
+
+        bottom: 24px;
+
+        font-size: 8px;
+    }
+
+
+    /* -------------------------
+       PIECES
+       ------------------------- */
+
+    .pieces-page {
+
+        padding:
+            58px 24px
+            64px;
     }
 
 
     .pieces-menu {
+
+        max-width: 100%;
+    }
+
+
+    .pieces-header {
+
+        margin-bottom: 48px;
+    }
+
+
+    .pieces-header .pieces-title {
+
+        font-size: 42px;
+    }
+
+
+    .pieces-header .pieces-intro {
+
+        font-size: 11px;
+    }
+
+
+    .piece {
+
+        min-height: 56px;
+
+        grid-template-columns:
+            54px 1fr;
+    }
+
+
+    .piece-number {
+
+        width: 54px;
+
+        font-size: 9px;
+    }
+
+
+    .piece-name {
+
+        font-size: 13px;
+    }
+
+
+    .last-piece .piece-name {
+
+        font-size: 15px;
+    }
+
+
+    .pieces-footer {
+
         margin-top: 50px;
     }
 
 
-    .piece-row {
-        min-height: 56px;
+    /* -------------------------
+       RECORD
+       ------------------------- */
 
-        grid-template-columns:
-            38px 1fr;
+    .record-page {
+
+        padding:
+            32px 24px;
     }
 
 
-    .piece-name {
-        font-size: 13.5px;
+    .record-title {
+
+        font-size: 42px;
     }
 
 
-    .last-piece {
-        margin-top: 75px;
+    .record-description {
+
+        margin-bottom: 42px;
     }
 
 }
 
 
 /* =========================================================
-   VERY SMALL PHONES
+   12. VERY SMALL PHONES
    ========================================================= */
 
 @media (max-width: 380px) {
 
-    .pieces-page {
-        padding-left: 22px;
-        padding-right: 22px;
+
+    .home-page {
+
+        padding-left: 20px;
+        padding-right: 20px;
     }
 
 
-    .pieces-title {
+    .home-content .title {
+
+        font-size: 46px;
+    }
+
+
+    .pieces-page {
+
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+
+
+    .pieces-header .pieces-title {
+
         font-size: 38px;
     }
 
 
-    .piece-row {
+    .piece {
+
         grid-template-columns:
-            36px 1fr;
+            50px 1fr;
+    }
+
+
+    .piece-number {
+
+        width: 50px;
     }
 
 
     .piece-name {
-        font-size: 13px;
+
+        font-size: 12.5px;
+    }
+
+
+    .last-piece .piece-name {
+
+        font-size: 14px;
+    }
+
+
+    .record-title {
+
+        font-size: 38px;
     }
 
 }
 
 
 /* =========================================================
-   REDUCED MOTION
+   13. ACCESSIBILITY
    ========================================================= */
 
 @media (prefers-reduced-motion: reduce) {
 
-    .pieces-page {
+    .home-page,
+    .pieces-page,
+    .record-page {
+
         animation: none;
+    }
+
+
+    *,
+    *::before,
+    *::after {
+
+        transition: none !important;
     }
 
 }
