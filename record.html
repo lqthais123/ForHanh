@@ -1,83 +1,57 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-
     <meta charset="UTF-8">
-
-    <meta
-        name="viewport"
-        content="width=device-width, initial-scale=1.0"
-    >
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>For Hanh</title>
 
     <link rel="stylesheet" href="style.css">
-
 </head>
 
-<body>
+<body class="record-page">
 
-    <main class="record-page">
+    <main class="record">
 
-        <div class="record-container">
+        <a
+            class="back-link"
+            href="pieces.html"
+            aria-label="Back to pieces"
+        >
+            ←
+        </a>
 
-            <a
-                class="back-button"
-                href="pieces.html"
-                aria-label="Back"
-            >
-                ←
-            </a>
+        <section class="record-content">
 
+            <p
+                id="record-number"
+                class="record-number"
+            ></p>
 
-            <div class="record-content">
+            <h1
+                id="record-title"
+                class="record-title"
+            ></h1>
 
-                <p
-                    id="record-number"
-                    class="record-number"
+            <div class="record-divider"></div>
+
+            <div class="audio-container">
+
+                <audio
+                    id="audio-player"
+                    controls
+                    preload="metadata"
                 >
-                    --
-                </p>
-
-
-                <h1
-                    id="record-title"
-                    class="record-title"
-                >
-                    Nothing here
-                </h1>
-
-
-                <p
-                    id="record-description"
-                    class="record-description"
-                >
-                    Some things are meant to be found.
-                </p>
-
-
-                <div class="audio-container">
-
-                    <audio
-                        id="audio-player"
-                        controls
-                        preload="metadata"
-                    >
-                        Your browser does not support audio playback.
-                    </audio>
-
-                </div>
+                    Your browser does not support audio playback.
+                </audio>
 
             </div>
 
-        </div>
+        </section>
 
     </main>
-
 
     <script src="script.js"></script>
 
 </body>
-
 </html>
