@@ -1,0 +1,509 @@
+/* =========================================================
+   FOR HANH
+   MENU PAGE ONLY
+   ========================================================= */
+
+
+/* =========================================================
+   RESET
+   ========================================================= */
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html,
+body {
+    width: 100%;
+    min-height: 100%;
+}
+
+html {
+    background: #f7f4ef;
+}
+
+body {
+
+    background: #f7f4ef;
+
+    color: #1f1f1f;
+
+    font-family:
+        -apple-system,
+        BlinkMacSystemFont,
+        "Helvetica Neue",
+        Arial,
+        sans-serif;
+
+    -webkit-font-smoothing: antialiased;
+
+    text-rendering: optimizeLegibility;
+
+    overflow-x: hidden;
+}
+
+
+/* =========================================================
+   PAPER TEXTURE
+   ========================================================= */
+
+body::before {
+
+    content: "";
+
+    position: fixed;
+
+    inset: 0;
+
+    pointer-events: none;
+
+    z-index: 100;
+
+    opacity: 0.035;
+
+    background-image:
+        url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.45'/%3E%3C/svg%3E");
+}
+
+
+/* =========================================================
+   PAGE
+   ========================================================= */
+
+.menu-page {
+
+    width: 100%;
+
+    max-width: 760px;
+
+    margin: 0 auto;
+
+    padding:
+        74px 28px
+        100px;
+
+    animation:
+        menuFadeIn 1.6s ease both;
+}
+
+
+/* =========================================================
+   HEADER
+   ========================================================= */
+
+.menu-header {
+
+    width: 100%;
+
+    text-align: center;
+
+    margin-bottom: 70px;
+}
+
+
+/* =========================================================
+   FOR HANH
+   ========================================================= */
+
+.menu-eyebrow {
+
+    margin-bottom: 26px;
+
+    font-size: 10px;
+
+    font-weight: 400;
+
+    letter-spacing: 0.34em;
+
+    color: #1f1f1f;
+
+    opacity: 0.38;
+}
+
+
+/* =========================================================
+   TITLE
+   ========================================================= */
+
+.menu-title {
+
+    margin-bottom: 18px;
+
+    font-family:
+        Georgia,
+        "Times New Roman",
+        Times,
+        serif;
+
+    font-size:
+        clamp(42px, 10vw, 64px);
+
+    font-weight: 400;
+
+    line-height: 1;
+
+    letter-spacing: -0.05em;
+
+    color: #1f1f1f;
+}
+
+
+/* =========================================================
+   SUBTITLE
+   ========================================================= */
+
+.menu-subtitle {
+
+    font-size: 13px;
+
+    line-height: 1.6;
+
+    letter-spacing: 0.06em;
+
+    color: #1f1f1f;
+
+    opacity: 0.48;
+}
+
+
+/* =========================================================
+   LIST
+   ========================================================= */
+
+.menu-list {
+
+    width: 100%;
+
+    border-top:
+        1px solid rgba(31, 31, 31, 0.15);
+}
+
+
+/* =========================================================
+   INDIVIDUAL PIECE
+   ========================================================= */
+
+.menu-piece {
+
+    width: 100%;
+
+    min-height: 108px;
+
+    display: grid;
+
+    grid-template-columns:
+        62px
+        1fr;
+
+    align-items: center;
+
+    border-bottom:
+        1px solid rgba(31, 31, 31, 0.15);
+
+    cursor: default;
+
+    user-select: none;
+
+    transition:
+        opacity 0.3s ease;
+}
+
+
+/*
+   IMPORTANT:
+
+   Đây là DIV, không phải A.
+
+   Không có href.
+   Không có link.
+   Không có arrow.
+*/
+
+.menu-piece:hover {
+    opacity: 0.62;
+}
+
+
+/* =========================================================
+   NUMBER
+   ========================================================= */
+
+.menu-number {
+
+    font-size: 10px;
+
+    font-weight: 400;
+
+    letter-spacing: 0.12em;
+
+    color: #1f1f1f;
+
+    opacity: 0.35;
+}
+
+
+/* =========================================================
+   NAME
+   ========================================================= */
+
+.menu-name {
+
+    font-size: 17px;
+
+    font-weight: 400;
+
+    letter-spacing: -0.01em;
+
+    color: #1f1f1f;
+}
+
+
+/* =========================================================
+   LAST
+   ========================================================= */
+
+.menu-last {
+
+    width: 100%;
+
+    margin-top: 72px;
+
+    padding-top: 28px;
+
+    border-top:
+        1px solid rgba(31, 31, 31, 0.20);
+
+    display: grid;
+
+    grid-template-columns:
+        1fr
+        1fr;
+
+    gap: 40px;
+
+    align-items: start;
+}
+
+
+/* =========================================================
+   LAST LEFT
+   ========================================================= */
+
+.menu-last-left {
+
+    min-width: 0;
+}
+
+
+.menu-last-label {
+
+    margin-bottom: 10px;
+
+    font-size: 10px;
+
+    letter-spacing: 0.16em;
+
+    color: #1f1f1f;
+
+    opacity: 0.55;
+}
+
+
+.menu-last-title {
+
+    font-family:
+        Georgia,
+        "Times New Roman",
+        Times,
+        serif;
+
+    font-size: 22px;
+
+    line-height: 1.25;
+
+    letter-spacing: -0.025em;
+
+    color: #1f1f1f;
+}
+
+
+/* =========================================================
+   LAST DESCRIPTION
+   ========================================================= */
+
+.menu-last-description {
+
+    font-size: 17px;
+
+    line-height: 1.5;
+
+    color: #1f1f1f;
+
+    opacity: 0.65;
+}
+
+
+/* =========================================================
+   FADE
+   ========================================================= */
+
+@keyframes menuFadeIn {
+
+    from {
+        opacity: 0;
+        transform: translateY(8px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+}
+
+
+/* =========================================================
+   MOBILE
+   ========================================================= */
+
+@media (max-width: 600px) {
+
+    .menu-page {
+
+        max-width: 100%;
+
+        padding:
+            64px 28px
+            90px;
+    }
+
+
+    .menu-header {
+
+        margin-bottom: 58px;
+    }
+
+
+    .menu-eyebrow {
+
+        margin-bottom: 24px;
+    }
+
+
+    .menu-title {
+
+        font-size: 42px;
+
+        line-height: 1.03;
+    }
+
+
+    .menu-subtitle {
+
+        font-size: 12px;
+    }
+
+
+    .menu-piece {
+
+        min-height: 100px;
+
+        grid-template-columns:
+            62px
+            1fr;
+    }
+
+
+    .menu-name {
+
+        font-size: 16px;
+    }
+
+
+    .menu-last {
+
+        margin-top: 64px;
+
+        grid-template-columns:
+            1fr
+            1fr;
+
+        gap: 28px;
+    }
+
+
+    .menu-last-title {
+
+        font-size: 20px;
+    }
+
+
+    .menu-last-description {
+
+        font-size: 16px;
+    }
+
+}
+
+
+/* =========================================================
+   VERY SMALL PHONES
+   ========================================================= */
+
+@media (max-width: 380px) {
+
+    .menu-page {
+
+        padding-left: 22px;
+        padding-right: 22px;
+    }
+
+
+    .menu-title {
+
+        font-size: 38px;
+    }
+
+
+    .menu-piece {
+
+        grid-template-columns:
+            50px
+            1fr;
+    }
+
+
+    .menu-name {
+
+        font-size: 15px;
+    }
+
+
+    .menu-last {
+
+        grid-template-columns:
+            1fr;
+
+        gap: 24px;
+    }
+
+}
+
+
+/* =========================================================
+   REDUCED MOTION
+   ========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+    .menu-page {
+        animation: none;
+    }
+
+    * {
+        transition: none !important;
+    }
+
+}
