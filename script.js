@@ -1,5 +1,4 @@
 const records = {
-
     "a7Kp3XmQ": {
         number: "01",
         title: "Beginning",
@@ -179,57 +178,48 @@ const records = {
         title: "Last",
         audio: "https://eynwufiwqeujayumyxkz.supabase.co/storage/v1/object/public/Voicecards/last.m4a"
     }
-
 };
 
 
-/* =========================
-   GET TOKEN FROM URL
-========================= */
-
 const params = new URLSearchParams(window.location.search);
-
 const token = params.get("t");
 
 const record = records[token];
 
+const numberElement = document.getElementById("record-number");
+const titleElement = document.getElementById("record-title");
+const audioPlayer = document.getElementById("audio-player");
 
-/* =========================
-   DISPLAY RECORD
-========================= */
 
 if (record) {
-
-    const numberElement =
-        document.getElementById("record-number");
-
-    const titleElement =
-        document.getElementById("record-title");
-
-    const audioPlayer =
-        document.getElementById("audio-player");
-
 
     if (numberElement) {
         numberElement.textContent = record.number;
     }
 
-
     if (titleElement) {
         titleElement.textContent = record.title;
     }
 
-
     if (audioPlayer) {
-
         audioPlayer.src = record.audio;
-
         audioPlayer.load();
-
     }
 
+    document.title = `${record.title} — For Hanh`;
 
-    document.title =
-        `${record.title} — For Hanh`;
+} else {
+
+    if (numberElement) {
+        numberElement.textContent = "";
+    }
+
+    if (titleElement) {
+        titleElement.textContent = "Nothing here";
+    }
+
+    if (audioPlayer) {
+        audioPlayer.style.display = "none";
+    }
 
 }
