@@ -1,4 +1,11 @@
+/* =========================================================
+   FOR HANH
+   30 pieces of me.
+   ========================================================= */
+
+
 const records = {
+
     "a7Kp3XmQ": {
         number: "01",
         title: "Beginning",
@@ -178,48 +185,71 @@ const records = {
         title: "Last",
         audio: "https://eynwufiwqeujayumyxkz.supabase.co/storage/v1/object/public/Voicecards/last.m4a"
     }
+
 };
 
 
-const params = new URLSearchParams(window.location.search);
+/* =========================================================
+   GET TOKEN
+   ========================================================= */
+
+const params = new URLSearchParams(
+    window.location.search
+);
+
 const token = params.get("t");
+
+
+/* =========================================================
+   FIND RECORD
+   ========================================================= */
 
 const record = records[token];
 
-const numberElement = document.getElementById("record-number");
-const titleElement = document.getElementById("record-title");
-const audioPlayer = document.getElementById("audio-player");
 
+/* =========================================================
+   DISPLAY RECORD
+   ========================================================= */
 
 if (record) {
 
+    const numberElement =
+        document.getElementById("record-number");
+
+    const titleElement =
+        document.getElementById("record-title");
+
+    const audioPlayer =
+        document.getElementById("audio-player");
+
+
     if (numberElement) {
-        numberElement.textContent = record.number;
+
+        numberElement.textContent =
+            record.number;
+
     }
+
 
     if (titleElement) {
-        titleElement.textContent = record.title;
+
+        titleElement.textContent =
+            record.title;
+
     }
 
+
     if (audioPlayer) {
-        audioPlayer.src = record.audio;
+
+        audioPlayer.src =
+            record.audio;
+
         audioPlayer.load();
+
     }
 
-    document.title = `${record.title} — For Hanh`;
 
-} else {
-
-    if (numberElement) {
-        numberElement.textContent = "";
-    }
-
-    if (titleElement) {
-        titleElement.textContent = "Nothing here";
-    }
-
-    if (audioPlayer) {
-        audioPlayer.style.display = "none";
-    }
+    document.title =
+        `${record.title} — For Hanh`;
 
 }
