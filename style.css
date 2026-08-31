@@ -149,3 +149,110 @@ body {
     }
 
 }
+/* =========================
+   RECORD PAGE
+========================= */
+
+.record-page {
+    min-height: 100vh;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 32px 24px;
+}
+
+.record-container {
+    position: relative;
+
+    width: 100%;
+    max-width: 520px;
+
+    min-height: 100vh;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.record-content {
+    width: 100%;
+
+    text-align: center;
+}
+
+.back-button {
+    position: absolute;
+
+    top: 32px;
+    left: 0;
+
+    width: 36px;
+    height: 36px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    color: #1f1f1f;
+
+    text-decoration: none;
+
+    font-size: 18px;
+
+    opacity: 0.45;
+
+    transition: opacity 0.3s ease;
+}
+
+.back-button:hover {
+    opacity: 1;
+}
+
+.record-number {
+    margin-bottom: 18px;
+
+    font-size: 10px;
+
+    letter-spacing: 0.2em;
+
+    opacity: 0.4;
+}
+
+.record-title {
+    margin-bottom: 14px;
+
+    font-size: 32px;
+
+    line-height: 1.2;
+
+    font-weight: 400;
+
+    letter-spacing: -0.04em;
+}
+
+.record-description {
+    margin-bottom: 42px;
+
+    font-size: 13px;
+
+    line-height: 1.6;
+
+    letter-spacing: 0.03em;
+
+    opacity: 0.5;
+}
+
+.audio-container {
+    width: 100%;
+
+    display: flex;
+    justify-content: center;
+}
+
+.audio-container audio {
+    width: 100%;
+
+    max-width: 360px;
+}
