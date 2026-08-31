@@ -1,0 +1,151 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html,
+body {
+    width: 100%;
+    min-height: 100%;
+}
+
+body {
+    min-height: 100vh;
+
+    background: #f7f4ef;
+    color: #1f1f1f;
+
+    font-family:
+        -apple-system,
+        BlinkMacSystemFont,
+        "Helvetica Neue",
+        Arial,
+        sans-serif;
+
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+}
+
+
+/* =========================
+   HOME
+========================= */
+
+.home {
+    min-height: 100vh;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 40px 24px;
+}
+
+.home-content {
+    width: 100%;
+    max-width: 480px;
+
+    text-align: center;
+}
+
+
+/* Small heading */
+
+.eyebrow {
+    margin-bottom: 28px;
+
+    font-size: 10px;
+    font-weight: 400;
+
+    letter-spacing: 0.24em;
+
+    opacity: 0.4;
+}
+
+
+/* Main title */
+
+.home h1 {
+    margin-bottom: 14px;
+
+    font-size: 42px;
+    line-height: 1.1;
+
+    font-weight: 400;
+
+    letter-spacing: -0.045em;
+}
+
+
+/* Signature */
+
+.signature {
+    font-size: 13px;
+
+    letter-spacing: 0.06em;
+
+    opacity: 0.5;
+}
+
+
+/* Divider */
+
+.divider {
+    width: 42px;
+    height: 1px;
+
+    margin: 56px auto 42px;
+
+    background: rgba(31, 31, 31, 0.25);
+}
+
+
+/* Main slogan */
+
+.tagline {
+    font-size: 19px;
+    line-height: 1.6;
+
+    font-weight: 400;
+
+    letter-spacing: -0.015em;
+
+    opacity: 0.85;
+}
+
+
+/* Supporting sentence */
+
+.subline {
+    margin-top: 12px;
+
+    font-size: 12px;
+
+    line-height: 1.6;
+
+    letter-spacing: 0.05em;
+
+    opacity: 0.42;
+}
+
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 480px) {
+
+    .home {
+        padding: 32px 24px;
+    }
+
+    .home h1 {
+        font-size: 38px;
+    }
+
+    .tagline {
+        font-size: 18px;
+    }
+
+}
