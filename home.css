@@ -1,0 +1,435 @@
+/* =========================================================
+   FOR HANH
+   HOMEPAGE ONLY
+   ========================================================= */
+
+
+/* =========================================================
+   RESET
+   ========================================================= */
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html,
+body {
+    width: 100%;
+    min-height: 100%;
+}
+
+html {
+    background: #f7f4ef;
+}
+
+body {
+    background: #f7f4ef;
+    color: #1f1f1f;
+
+    font-family:
+        -apple-system,
+        BlinkMacSystemFont,
+        "Helvetica Neue",
+        Arial,
+        sans-serif;
+
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+
+    overflow-x: hidden;
+}
+
+
+/* =========================================================
+   PAPER TEXTURE
+   ========================================================= */
+
+body::before {
+    content: "";
+
+    position: fixed;
+    inset: 0;
+
+    pointer-events: none;
+
+    z-index: 100;
+
+    opacity: 0.035;
+
+    background-image:
+        url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.45'/%3E%3C/svg%3E");
+}
+
+
+/* =========================================================
+   HOMEPAGE
+   ========================================================= */
+
+.home-page {
+
+    position: relative;
+
+    width: 100%;
+    min-height: 100svh;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    padding:
+        40px 28px;
+}
+
+
+/* =========================================================
+   MAIN CONTENT
+   ========================================================= */
+
+.home-content {
+
+    width: 100%;
+    max-width: 560px;
+
+    transform: translateY(-1vh);
+
+    animation:
+        homeFadeIn 1.8s ease both;
+}
+
+
+/* =========================================================
+   EYEBROW
+   ========================================================= */
+
+.home-eyebrow {
+
+    margin-bottom: 28px;
+
+    font-size: 10px;
+
+    font-weight: 400;
+
+    letter-spacing: 0.34em;
+
+    color: #1f1f1f;
+
+    opacity: 0.38;
+}
+
+
+/* =========================================================
+   TITLE
+   ========================================================= */
+
+.home-title {
+
+    margin-bottom: 18px;
+
+    font-family:
+        Georgia,
+        "Times New Roman",
+        Times,
+        serif;
+
+    font-size:
+        clamp(48px, 13vw, 72px);
+
+    font-weight: 400;
+
+    line-height: 0.98;
+
+    letter-spacing: -0.055em;
+
+    color: #1f1f1f;
+}
+
+
+/* =========================================================
+   SIGNATURE
+   ========================================================= */
+
+.home-signature {
+
+    max-width: 300px;
+
+    margin-bottom: 70px;
+
+    font-size: 13px;
+
+    line-height: 1.6;
+
+    letter-spacing: 0.08em;
+
+    color: #1f1f1f;
+
+    opacity: 0.52;
+}
+
+
+/* =========================================================
+   DIVIDER
+   ========================================================= */
+
+.home-divider {
+
+    width: 270px;
+    max-width: 70%;
+
+    height: 1px;
+
+    margin-bottom: 62px;
+
+    background: rgba(31, 31, 31, 0.18);
+}
+
+
+/* =========================================================
+   TAGLINE
+   ========================================================= */
+
+.home-tagline {
+
+    margin-bottom: 0;
+
+    font-size: 17px;
+
+    line-height: 1.75;
+
+    font-weight: 400;
+
+    letter-spacing: -0.01em;
+
+    color: #1f1f1f;
+
+    opacity: 0.72;
+}
+
+.home-tagline span {
+    opacity: 0.8;
+}
+
+
+/* =========================================================
+   ENTER
+   ========================================================= */
+
+.home-enter {
+
+    display: inline-flex;
+
+    align-items: center;
+
+    gap: 13px;
+
+    margin-top: 38px;
+
+    color: #1f1f1f;
+
+    text-decoration: none;
+
+    font-size: 12px;
+
+    font-weight: 400;
+
+    letter-spacing: 0.20em;
+
+    transition:
+        opacity 0.35s ease;
+}
+
+
+.home-arrow {
+
+    display: inline-block;
+
+    font-size: 27px;
+
+    line-height: 1;
+
+    letter-spacing: 0;
+
+    transition:
+        transform 0.35s ease;
+}
+
+
+.home-enter:hover {
+    opacity: 0.55;
+}
+
+.home-enter:hover .home-arrow {
+    transform: translateX(6px);
+}
+
+
+/* =========================================================
+   BOTTOM NOTE
+   ========================================================= */
+
+.home-bottom-note {
+
+    position: absolute;
+
+    right: 7vw;
+    bottom: 10vh;
+
+    max-width: 280px;
+
+    font-size: 13px;
+
+    line-height: 1.55;
+
+    letter-spacing: 0.04em;
+
+    color: #1f1f1f;
+
+    opacity: 0.52;
+
+    animation:
+        homeFadeIn 2.4s ease both;
+}
+
+
+/* =========================================================
+   FADE
+   ========================================================= */
+
+@keyframes homeFadeIn {
+
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+}
+
+
+/* =========================================================
+   MOBILE
+   ========================================================= */
+
+@media (max-width: 600px) {
+
+    .home-page {
+
+        min-height: 100svh;
+
+        padding:
+            32px 28px;
+    }
+
+
+    .home-content {
+
+        max-width: 100%;
+
+        transform: none;
+    }
+
+
+    .home-eyebrow {
+
+        margin-bottom: 29px;
+    }
+
+
+    .home-title {
+
+        font-size: 50px;
+
+        margin-bottom: 18px;
+    }
+
+
+    .home-signature {
+
+        margin-bottom: 70px;
+
+        font-size: 12px;
+    }
+
+
+    .home-divider {
+
+        width: 275px;
+
+        margin-bottom: 58px;
+    }
+
+
+    .home-tagline {
+
+        font-size: 17px;
+
+        line-height: 1.75;
+    }
+
+
+    .home-enter {
+
+        margin-top: 36px;
+    }
+
+
+    .home-bottom-note {
+
+        right: 28px;
+
+        bottom: 10vh;
+
+        max-width: 280px;
+
+        text-align: right;
+
+        font-size: 13px;
+    }
+
+}
+
+
+/* =========================================================
+   VERY SMALL PHONES
+   ========================================================= */
+
+@media (max-width: 380px) {
+
+    .home-page {
+        padding-left: 22px;
+        padding-right: 22px;
+    }
+
+    .home-title {
+        font-size: 46px;
+    }
+
+    .home-bottom-note {
+        right: 22px;
+    }
+
+}
+
+
+/* =========================================================
+   REDUCED MOTION
+   ========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+    .home-content,
+    .home-bottom-note {
+        animation: none;
+    }
+
+    * {
+        transition: none !important;
+    }
+
+}
