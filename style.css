@@ -26,6 +26,11 @@ body {
     -webkit-font-smoothing: antialiased;
 }
 
+
+/* =========================
+   HOME
+========================= */
+
 main {
     min-height: 100vh;
 
@@ -71,6 +76,7 @@ main {
 
     opacity: 0.8;
 }
+
 .enter-button {
     display: inline-block;
 
@@ -101,6 +107,20 @@ main {
     transform: scale(0.97);
 }
 
+
+/* =========================
+   PIECES PAGE
+========================= */
+
+.pieces-container {
+    width: 100%;
+    max-width: 520px;
+
+    margin: 0 auto;
+
+    padding: 70px 24px;
+}
+
 .eyebrow {
     margin-bottom: 24px;
 
@@ -128,18 +148,11 @@ main {
 
     opacity: 0.45;
 }
-.pieces-container {
-    width: 100%;
-    max-width: 520px;
 
-    margin: 0 auto;
 
-    padding: 70px 24px;
-}
-
-.pieces-container .eyebrow {
-    margin-bottom: 24px;
-}
+/* =========================
+   PIECES LIST
+========================= */
 
 .pieces-list {
     margin-top: 55px;
@@ -150,7 +163,6 @@ main {
 .piece {
     display: flex;
     align-items: center;
-    justify-content: space-between;
 
     width: 100%;
 
@@ -159,22 +171,13 @@ main {
     border-bottom: 1px solid rgba(31, 31, 31, 0.12);
 
     color: #1f1f1f;
-
-    text-decoration: none;
-
-    transition:
-        opacity 0.25s ease,
-        padding 0.25s ease;
-}
-
-.piece:hover {
-    opacity: 0.55;
-
-    padding-left: 5px;
-    padding-right: 5px;
 }
 
 .piece-number {
+    min-width: 42px;
+
+    text-align: left;
+
     font-size: 10px;
 
     letter-spacing: 0.12em;
@@ -190,31 +193,33 @@ main {
     font-weight: 400;
 }
 
-.piece .piece-number {
-    min-width: 30px;
 
-    text-align: left;
-}
-
-.piece .piece-name {
-    flex: 1;
-
-    text-align: left;
-}
+/* =========================
+   LAST
+========================= */
 
 .last-piece {
     display: flex;
     align-items: center;
-    justify-content: space-between;
+
+    width: 100%;
 
     margin-top: 65px;
 
-    padding-top: 20px;
+    padding: 20px 0;
 
     border-top: 1px solid rgba(31, 31, 31, 0.2);
 
+    border-bottom: 1px solid rgba(31, 31, 31, 0.12);
+
     opacity: 0.7;
 }
+
+
+/* =========================
+   RECORD PAGE
+========================= */
+
 .record-container {
     position: relative;
 
@@ -307,4 +312,34 @@ main {
     width: 100%;
 
     max-width: 360px;
+}
+
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 480px) {
+
+    .pieces-container {
+        padding-top: 55px;
+        padding-bottom: 55px;
+    }
+
+    .pieces-title {
+        font-size: 28px;
+    }
+
+    .piece {
+        padding: 17px 0;
+    }
+
+    .piece-name {
+        font-size: 13px;
+    }
+
+    .last-piece {
+        margin-top: 55px;
+    }
+
 }
