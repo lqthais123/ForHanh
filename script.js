@@ -1,9 +1,3 @@
-/* =========================================================
-   FOR HANH
-   30 pieces of me.
-   ========================================================= */
-
-
 const records = {
 
     "a7Kp3XmQ": {
@@ -99,7 +93,7 @@ const records = {
     "w5Hd8ZrC": {
         number: "16",
         title: "Miss",
-        audio: "https://eynwufiwqeujayumyxkz.supabase.co/storage/v1/object/public/Voicecards/16miss.m4a"
+        audio: "https://eynwufiwqeujumyxkz.supabase.co/storage/v1/object/public/Voicecards/16miss.m4a"
     },
 
     "j7Xc3PnM": {
@@ -182,7 +176,7 @@ const records = {
 
     "r3Mk8YpL": {
         number: "LAST",
-        title: "Last",
+        title: "there is one more thing",
         audio: "https://eynwufiwqeujayumyxkz.supabase.co/storage/v1/object/public/Voicecards/last.m4a"
     }
 
@@ -193,16 +187,9 @@ const records = {
    GET TOKEN
    ========================================================= */
 
-const params = new URLSearchParams(
-    window.location.search
-);
+const params = new URLSearchParams(window.location.search);
 
 const token = params.get("t");
-
-
-/* =========================================================
-   FIND RECORD
-   ========================================================= */
 
 const record = records[token];
 
@@ -224,25 +211,18 @@ if (record) {
 
 
     if (numberElement) {
-
-        numberElement.textContent =
-            record.number;
-
+        numberElement.textContent = record.number;
     }
 
 
     if (titleElement) {
-
-        titleElement.textContent =
-            record.title;
-
+        titleElement.textContent = record.title;
     }
 
 
     if (audioPlayer) {
 
-        audioPlayer.src =
-            record.audio;
+        audioPlayer.src = record.audio;
 
         audioPlayer.load();
 
