@@ -1,6 +1,5 @@
 /* =========================================================
    FOR HANH
-   30 pieces of me.
    MASTER STYLE
    ========================================================= */
 
@@ -25,6 +24,8 @@ body {
     width: 100%;
     min-height: 100vh;
 
+    margin: 0;
+
     background: #f7f4ef;
     color: #1f1f1f;
 
@@ -43,7 +44,7 @@ body {
 
 
 /* =========================================================
-   02. PAPER TEXTURE
+   02. VERY LIGHT PAPER TEXTURE
    ========================================================= */
 
 body::before {
@@ -54,17 +55,17 @@ body::before {
 
     pointer-events: none;
 
-    opacity: 0.025;
+    opacity: 0.028;
 
     background-image:
-        url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='.45'/%3E%3C/svg%3E");
+        url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='.5'/%3E%3C/svg%3E");
 
-    z-index: 1000;
+    z-index: 9999;
 }
 
 
 /* =========================================================
-   03. GLOBAL ANIMATION
+   03. PAGE FADE IN
    ========================================================= */
 
 main {
@@ -72,6 +73,7 @@ main {
 }
 
 @keyframes pageFadeIn {
+
     from {
         opacity: 0;
         transform: translateY(8px);
@@ -81,6 +83,7 @@ main {
         opacity: 1;
         transform: translateY(0);
     }
+
 }
 
 
@@ -89,48 +92,65 @@ main {
    ========================================================= */
 
 .home {
+
     position: relative;
 
     width: 100%;
-    min-height: 100vh;
+    min-height: 100svh;
 
     padding:
-        80px 48px
-        120px;
+        40px 48px;
 
     display: flex;
-    align-items: flex-start;
-    justify-content: flex-start;
+
+    align-items: center;
+    justify-content: center;
+
 }
 
 
-/* Main content */
+/* Main homepage content */
 
 .home-content {
+
     width: 100%;
-    max-width: 520px;
+    max-width: 620px;
+
+    margin: 0 auto;
+
+    text-align: left;
+
 }
 
 
-/* FOR HANH */
+/* =========================================================
+   05. HOME EYEBROW
+   ========================================================= */
 
 .home .eyebrow {
-    margin-bottom: 30px;
+
+    margin-bottom: 34px;
 
     font-size: 10px;
+
     font-weight: 400;
 
     letter-spacing: 0.34em;
 
     color: #1f1f1f;
+
     opacity: 0.38;
+
 }
 
 
-/* FOR HANH title */
+/* =========================================================
+   06. HOME TITLE
+   ========================================================= */
 
 .home .title {
-    margin-bottom: 20px;
+
+    margin-bottom: 22px;
 
     font-family:
         Georgia,
@@ -138,7 +158,7 @@ main {
         Times,
         serif;
 
-    font-size: clamp(48px, 13vw, 72px);
+    font-size: clamp(52px, 8vw, 76px);
 
     font-weight: 400;
 
@@ -147,15 +167,21 @@ main {
     letter-spacing: -0.055em;
 
     color: #1f1f1f;
+
 }
 
 
-/* Signature */
+/* =========================================================
+   07. SIGNATURE
+   ========================================================= */
 
 .home .signature {
-    margin-bottom: 70px;
 
-    font-size: 13px;
+    margin-bottom: 76px;
+
+    font-size: 15px;
+
+    font-weight: 400;
 
     line-height: 1.6;
 
@@ -164,73 +190,90 @@ main {
     color: #1f1f1f;
 
     opacity: 0.52;
+
 }
 
 
-/* Divider */
+/* =========================================================
+   08. DIVIDER
+   ========================================================= */
 
-.divider {
-    width: 165px;
+.home .divider {
+
+    width: 270px;
+
     height: 1px;
 
-    margin-bottom: 68px;
+    margin-bottom: 56px;
 
-    background: rgba(31, 31, 31, 0.18);
+    background: rgba(31, 31, 31, 0.16);
+
 }
 
 
-/* Tagline */
+/* =========================================================
+   09. TAGLINE
+   ========================================================= */
 
 .home .tagline {
-    max-width: 360px;
 
-    margin-bottom: 0;
+    margin-bottom: 40px;
 
-    font-size: 17px;
-
-    line-height: 1.75;
+    font-size: 18px;
 
     font-weight: 400;
+
+    line-height: 1.75;
 
     letter-spacing: -0.01em;
 
     color: #1f1f1f;
 
     opacity: 0.72;
+
 }
 
 .home .tagline span {
+
+    color: #1f1f1f;
+
     opacity: 0.72;
+
 }
 
 
 /* =========================================================
-   05. ENTER
+   10. ENTER LINK
    ========================================================= */
 
 .enter-link {
+
     display: inline-flex;
+
     align-items: center;
 
-    margin-top: 36px;
+    gap: 14px;
 
     color: #1f1f1f;
 
     text-decoration: none;
 
-    font-size: 12px;
+    font-size: 13px;
 
     font-weight: 400;
 
-    letter-spacing: 0.22em;
+    letter-spacing: 0.24em;
+
+    transition:
+        opacity 0.35s ease;
 }
 
+
 .enter-link .arrow {
+
     display: inline-block;
 
-    margin-left: 12px;
-
-    font-size: 22px;
+    font-size: 27px;
 
     line-height: 1;
 
@@ -240,28 +283,44 @@ main {
         transform 0.35s ease;
 }
 
-.enter-link:hover .arrow {
-    transform: translateX(7px);
-}
 
 .enter-link:hover {
-    opacity: 0.65;
+
+    opacity: 0.55;
+
+}
+
+
+.enter-link:hover .arrow {
+
+    transform: translateX(7px);
+
+}
+
+
+.enter-link:visited,
+.enter-link:active,
+.enter-link:focus {
+
+    color: #1f1f1f;
+
 }
 
 
 /* =========================================================
-   06. HOMEPAGE BOTTOM NOTE
+   11. BOTTOM NOTE
    ========================================================= */
 
 .bottom-note {
+
     position: absolute;
 
     right: 48px;
-    bottom: 92px;
+    bottom: 72px;
 
     max-width: 300px;
 
-    font-size: 13px;
+    font-size: 14px;
 
     line-height: 1.6;
 
@@ -269,49 +328,54 @@ main {
 
     color: #1f1f1f;
 
-    opacity: 0.48;
+    opacity: 0.5;
 
-    text-align: left;
 }
 
 
 /* =========================================================
-   07. PIECES PAGE
+   12. PIECES PAGE
    ========================================================= */
 
 .pieces-container {
+
     width: 100%;
+
     max-width: 720px;
 
     margin: 0 auto;
 
     padding:
-        70px 48px
-        110px;
+        72px 48px
+        100px;
+
 }
 
 
-/* Pieces eyebrow */
+/* =========================================================
+   13. PIECES HEADER
+   ========================================================= */
 
 .pieces-container .eyebrow {
+
     margin-bottom: 28px;
 
     font-size: 10px;
 
     font-weight: 400;
 
-    letter-spacing: 0.3em;
+    letter-spacing: 0.30em;
 
     color: #1f1f1f;
 
     opacity: 0.38;
+
 }
 
 
-/* Pieces title */
-
 .pieces-title {
-    margin-bottom: 18px;
+
+    margin-bottom: 20px;
 
     font-family:
         Georgia,
@@ -319,59 +383,68 @@ main {
         Times,
         serif;
 
-    font-size: clamp(40px, 8vw, 56px);
+    font-size: clamp(46px, 8vw, 68px);
 
     font-weight: 400;
 
-    line-height: 1.05;
+    line-height: 1;
 
-    letter-spacing: -0.045em;
+    letter-spacing: -0.05em;
+
+    color: #1f1f1f;
+
 }
 
 
-/* Pieces intro */
-
 .pieces-intro {
-    font-size: 13px;
+
+    font-size: 14px;
 
     line-height: 1.6;
 
-    letter-spacing: 0.05em;
+    letter-spacing: 0.07em;
 
     color: #1f1f1f;
 
     opacity: 0.48;
+
 }
 
 
 /* =========================================================
-   08. PIECES LIST
+   14. PIECES LIST
    ========================================================= */
 
 .pieces-list {
+
     width: 100%;
 
-    margin-top: 58px;
+    margin-top: 62px;
 
     border-top:
-        1px solid rgba(31, 31, 31, 0.15);
+        1px solid rgba(31, 31, 31, 0.14);
+
 }
 
 
-/* Individual piece */
+/* =========================================================
+   15. INDIVIDUAL PIECE
+   ========================================================= */
 
 .piece {
+
     display: flex;
+
     align-items: center;
 
     width: 100%;
 
-    min-height: 86px;
+    min-height: 96px;
 
     padding: 20px 0;
 
     border-bottom:
-        1px solid rgba(31, 31, 31, 0.13);
+        1px solid rgba(31, 31, 31, 0.14);
 
     color: #1f1f1f;
 
@@ -380,24 +453,37 @@ main {
     transition:
         opacity 0.3s ease,
         padding-left 0.3s ease;
+
 }
 
 
-/* Hover */
+/*
+   IMPORTANT:
+
+   We DO NOT create another arrow using ::after.
+
+   Your HTML already contains the arrow.
+*/
+
 
 .piece:hover {
-    opacity: 0.6;
+
+    opacity: 0.55;
 
     padding-left: 5px;
+
 }
 
 
-/* Number */
+/* =========================================================
+   16. PIECE NUMBER
+   ========================================================= */
 
 .piece-number {
-    flex: 0 0 48px;
 
-    font-size: 10px;
+    flex: 0 0 72px;
+
+    font-size: 11px;
 
     font-weight: 400;
 
@@ -406,191 +492,201 @@ main {
     color: #1f1f1f;
 
     opacity: 0.38;
-}
 
-
-/* Name */
-
-.piece-name {
-    flex: 1;
-
-    font-size: 15px;
-
-    font-weight: 400;
-
-    letter-spacing: 0.01em;
-
-    color: #1f1f1f;
-}
-
-
-/* Arrow */
-
-.piece::after {
-    content: "→";
-
-    flex: 0 0 24px;
-
-    font-size: 17px;
-
-    color: #1f1f1f;
-
-    opacity: 0.32;
-
-    transition:
-        transform 0.3s ease,
-        opacity 0.3s ease;
-}
-
-.piece:hover::after {
-    transform: translateX(5px);
-
-    opacity: 0.7;
 }
 
 
 /* =========================================================
-   09. LAST
+   17. PIECE NAME
+   ========================================================= */
+
+.piece-name {
+
+    flex: 1;
+
+    font-size: 18px;
+
+    font-weight: 400;
+
+    letter-spacing: 0;
+
+    color: #1f1f1f;
+
+}
+
+
+/* =========================================================
+   18. PIECE ARROW
+   ========================================================= */
+
+.piece .arrow {
+
+    flex: 0 0 auto;
+
+    margin-left: 20px;
+
+    font-size: 24px;
+
+    font-weight: 300;
+
+    line-height: 1;
+
+    color: #1f1f1f;
+
+    opacity: 0.42;
+
+    transition:
+        transform 0.3s ease,
+        opacity 0.3s ease;
+
+}
+
+
+.piece:hover .arrow {
+
+    opacity: 0.8;
+
+    transform: translateX(5px);
+
+}
+
+
+/* =========================================================
+   19. LAST PIECE
    ========================================================= */
 
 .last-piece {
-    display: grid;
 
-    grid-template-columns: 1fr 1fr 28px;
+    display: flex;
 
-    column-gap: 20px;
+    align-items: flex-start;
 
-    align-items: start;
+    justify-content: space-between;
 
     width: 100%;
 
-    margin-top: 64px;
+    margin-top: 72px;
 
     padding-top: 28px;
 
     border-top:
-        1px solid rgba(31, 31, 31, 0.22);
+        1px solid rgba(31, 31, 31, 0.18);
 
     color: #1f1f1f;
 
     text-decoration: none;
 
     transition:
-        opacity 0.3s ease;
+        opacity 0.35s ease,
+        transform 0.35s ease;
+
 }
 
 
 .last-piece:hover {
-    opacity: 0.65;
+
+    opacity: 0.62;
+
+    transform: translateX(5px);
+
 }
 
 
-/* LAST label */
+.last-piece .piece-number {
 
-.last-piece .last-label {
     display: block;
 
-    margin-bottom: 20px;
+    flex: 0 0 auto;
 
-    font-size: 10px;
+    width: 110px;
 
-    letter-spacing: 0.18em;
+    font-size: 11px;
 
-    opacity: 0.55;
+    letter-spacing: 0.16em;
+
+    opacity: 0.7;
+
 }
 
 
-/* LAST title */
+.last-piece .piece-name {
 
-.last-piece .last-title {
+    flex: 1;
+
     font-family:
         Georgia,
         "Times New Roman",
         Times,
         serif;
 
-    font-size: 18px;
+    font-size: 22px;
 
     line-height: 1.35;
 
-    letter-spacing: -0.02em;
 }
 
 
-/* LAST description */
+.last-piece .arrow {
 
-.last-piece .last-description {
-    padding-top: 28px;
+    flex: 0 0 auto;
 
-    font-size: 15px;
+    margin-left: 20px;
 
-    line-height: 1.6;
+    font-size: 24px;
 
-    color: #1f1f1f;
+    opacity: 0.42;
 
-    opacity: 0.65;
-}
-
-
-/* LAST arrow */
-
-.last-piece .last-arrow {
-    align-self: end;
-
-    padding-bottom: 4px;
-
-    font-size: 19px;
-
-    opacity: 0.4;
-
-    transition:
-        transform 0.3s ease;
-}
-
-.last-piece:hover .last-arrow {
-    transform: translateX(5px);
 }
 
 
 /* =========================================================
-   10. RECORD PAGE
+   20. RECORD PAGE
    ========================================================= */
 
 .record-container {
+
     position: relative;
 
     width: 100%;
-    max-width: 720px;
 
-    min-height: 100vh;
+    max-width: 620px;
+
+    min-height: 100svh;
 
     margin: 0 auto;
 
     padding:
-        32px 48px
+        40px 48px
         60px;
 
     display: flex;
 
     align-items: center;
+
     justify-content: center;
+
 }
 
 
 .record-content {
+
     width: 100%;
 
     text-align: center;
+
 }
 
 
-/* Back */
+/* =========================================================
+   21. BACK BUTTON
+   ========================================================= */
 
 .back-button {
+
     position: absolute;
 
     top: 32px;
-    left: 28px;
+    left: 32px;
 
     width: 40px;
     height: 40px;
@@ -604,39 +700,52 @@ main {
 
     text-decoration: none;
 
-    font-size: 22px;
+    font-size: 24px;
 
     opacity: 0.45;
 
     transition:
         opacity 0.3s ease,
         transform 0.3s ease;
+
 }
 
+
 .back-button:hover {
+
     opacity: 1;
 
     transform: translateX(-4px);
+
 }
 
 
-/* Record number */
+/* =========================================================
+   22. RECORD NUMBER
+   ========================================================= */
 
 .record-number {
+
     margin-bottom: 20px;
 
     font-size: 10px;
 
+    font-weight: 400;
+
     letter-spacing: 0.28em;
 
     opacity: 0.4;
+
 }
 
 
-/* Record title */
+/* =========================================================
+   23. RECORD TITLE
+   ========================================================= */
 
 .record-title {
-    margin-bottom: 16px;
+
+    margin-bottom: 18px;
 
     font-family:
         Georgia,
@@ -644,19 +753,23 @@ main {
         Times,
         serif;
 
-    font-size: clamp(40px, 10vw, 58px);
+    font-size: clamp(44px, 8vw, 64px);
 
     font-weight: 400;
 
     line-height: 1.05;
 
     letter-spacing: -0.045em;
+
 }
 
 
-/* Record description */
+/* =========================================================
+   24. RECORD DESCRIPTION
+   ========================================================= */
 
 .record-description {
+
     max-width: 320px;
 
     margin:
@@ -670,218 +783,384 @@ main {
     letter-spacing: 0.03em;
 
     opacity: 0.48;
+
 }
 
 
-/* Audio */
+/* =========================================================
+   25. AUDIO PLAYER
+   ========================================================= */
 
 .audio-container {
+
     width: 100%;
 
     display: flex;
 
     justify-content: center;
+
 }
 
+
 .audio-container audio {
+
     width: 100%;
 
-    max-width: 400px;
+    max-width: 380px;
 
     height: 42px;
+
 }
 
 
 /* =========================================================
-   11. MOBILE
+   26. MOBILE
    ========================================================= */
 
 @media (max-width: 600px) {
 
-    /* -------------------------
+
+    /* -----------------------------------------------------
        HOME
-       ------------------------- */
+       ----------------------------------------------------- */
 
     .home {
+
         min-height: 100svh;
 
         padding:
-            0 48px
-            100px;
+            40px 46px;
 
-        display: flex;
-
-        align-items: flex-start;
     }
+
 
     .home-content {
-        width: 100%;
 
-        padding-top: 31vh;
-    }
-
-    .home .eyebrow {
-        margin-bottom: 28px;
-    }
-
-    .home .title {
-        font-size: 50px;
-
-        margin-bottom: 20px;
-    }
-
-    .home .signature {
-        margin-bottom: 70px;
-
-        font-size: 12px;
-    }
-
-    .divider {
-        width: 165px;
-
-        margin-bottom: 66px;
-    }
-
-    .home .tagline {
-        max-width: 310px;
-
-        font-size: 16px;
-
-        line-height: 1.75;
-    }
-
-    .enter-link {
-        margin-top: 36px;
-    }
-
-    .bottom-note {
-        right: 48px;
-        bottom: 92px;
-
-        max-width: 300px;
-
-        font-size: 13px;
-    }
-
-
-    /* -------------------------
-       PIECES
-       ------------------------- */
-
-    .pieces-container {
         max-width: 100%;
 
-        padding:
-            58px 48px
-            100px;
+        margin: 0 auto;
+
     }
+
+
+    .home .eyebrow {
+
+        margin-bottom: 30px;
+
+        font-size: 10px;
+
+    }
+
+
+    .home .title {
+
+        margin-bottom: 20px;
+
+        font-size: 52px;
+
+        line-height: 0.98;
+
+    }
+
+
+    .home .signature {
+
+        margin-bottom: 68px;
+
+        font-size: 14px;
+
+        letter-spacing: 0.075em;
+
+    }
+
+
+    .home .divider {
+
+        width: 270px;
+
+        margin-bottom: 54px;
+
+    }
+
+
+    .home .tagline {
+
+        margin-bottom: 38px;
+
+        font-size: 18px;
+
+        line-height: 1.75;
+
+    }
+
+
+    .enter-link {
+
+        font-size: 13px;
+
+        letter-spacing: 0.23em;
+
+    }
+
+
+    .enter-link .arrow {
+
+        font-size: 26px;
+
+    }
+
+
+    .bottom-note {
+
+        right: 46px;
+
+        bottom: 74px;
+
+        max-width: 270px;
+
+        font-size: 13px;
+
+        text-align: right;
+
+    }
+
+
+    /* -----------------------------------------------------
+       PIECES
+       ----------------------------------------------------- */
+
+    .pieces-container {
+
+        max-width: none;
+
+        padding:
+            58px 46px
+            90px;
+
+    }
+
+
+    .pieces-container .eyebrow {
+
+        margin-bottom: 26px;
+
+    }
+
 
     .pieces-title {
-        font-size: 42px;
+
+        font-size: 46px;
+
+        line-height: 1.02;
+
     }
+
+
+    .pieces-intro {
+
+        font-size: 13px;
+
+    }
+
 
     .pieces-list {
-        margin-top: 48px;
+
+        margin-top: 56px;
+
     }
+
 
     .piece {
-        min-height: 82px;
 
-        padding: 20px 0;
+        min-height: 92px;
+
+        padding: 18px 0;
+
     }
+
 
     .piece-number {
-        flex-basis: 62px;
+
+        flex: 0 0 64px;
+
+        font-size: 10px;
+
     }
+
 
     .piece-name {
-        font-size: 15px;
+
+        font-size: 17px;
+
     }
 
 
-    /* -------------------------
+    .piece .arrow {
+
+        margin-left: 14px;
+
+        font-size: 22px;
+
+    }
+
+
+    /* -----------------------------------------------------
        LAST
-       ------------------------- */
+       ----------------------------------------------------- */
 
     .last-piece {
-        grid-template-columns:
-            1fr
-            1fr
-            28px;
 
-        column-gap: 12px;
+        margin-top: 66px;
 
-        margin-top: 64px;
+        padding-top: 26px;
 
-        padding-top: 28px;
-    }
+        align-items: flex-start;
 
-    .last-piece .last-description {
-        padding-top: 28px;
-
-        font-size: 15px;
     }
 
 
-    /* -------------------------
+    .last-piece .piece-number {
+
+        width: 78px;
+
+        font-size: 10px;
+
+    }
+
+
+    .last-piece .piece-name {
+
+        font-size: 20px;
+
+    }
+
+
+    .last-piece .arrow {
+
+        margin-left: 12px;
+
+        font-size: 22px;
+
+    }
+
+
+    /* -----------------------------------------------------
        RECORD
-       ------------------------- */
+       ----------------------------------------------------- */
 
     .record-container {
-        min-height: 100svh;
 
         padding:
-            32px 28px
-            48px;
+            40px 46px
+            60px;
+
     }
+
 
     .record-title {
-        font-size: 42px;
+
+        font-size: 44px;
+
     }
 
+
     .record-description {
+
         margin-bottom: 42px;
+
     }
+
 }
 
 
 /* =========================================================
-   12. VERY SMALL PHONES
+   27. VERY SMALL PHONES
    ========================================================= */
 
 @media (max-width: 380px) {
 
+
     .home {
-        padding-left: 32px;
-        padding-right: 32px;
+
+        padding-left: 30px;
+        padding-right: 30px;
+
     }
 
-    .home-content {
-        padding-top: 28vh;
-    }
 
     .home .title {
+
         font-size: 46px;
+
     }
+
+
+    .home .divider {
+
+        width: 220px;
+
+    }
+
 
     .bottom-note {
-        right: 32px;
-        bottom: 82px;
+
+        right: 30px;
+
+        bottom: 64px;
+
+        max-width: 230px;
+
     }
+
 
     .pieces-container {
-        padding-left: 32px;
-        padding-right: 32px;
+
+        padding-left: 30px;
+        padding-right: 30px;
+
     }
 
+
     .pieces-title {
-        font-size: 38px;
+
+        font-size: 40px;
+
     }
+
+
+    .piece-number {
+
+        flex-basis: 56px;
+
+    }
+
+
+    .piece-name {
+
+        font-size: 16px;
+
+    }
+
+
+    .last-piece .piece-number {
+
+        width: 64px;
+
+    }
+
+
+    .record-container {
+
+        padding-left: 30px;
+        padding-right: 30px;
+
+    }
+
 }
 
 
 /* =========================================================
-   13. REDUCED MOTION
+   28. REDUCED MOTION
    ========================================================= */
 
 @media (prefers-reduced-motion: reduce) {
@@ -895,4 +1174,5 @@ main {
     *::after {
         transition: none !important;
     }
+
 }
