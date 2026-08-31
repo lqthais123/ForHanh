@@ -1,0 +1,385 @@
+/* =========================================================
+   FOR HANH — PIECES PAGE
+   29 + 1
+   ========================================================= */
+
+
+/* =========================================================
+   RESET
+   ========================================================= */
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    width: 100%;
+    min-height: 100%;
+    background: #f7f4ef;
+}
+
+body {
+    width: 100%;
+    min-height: 100vh;
+
+    background: #f7f4ef;
+    color: #1f1f1f;
+
+    font-family:
+        -apple-system,
+        BlinkMacSystemFont,
+        "Helvetica Neue",
+        Arial,
+        sans-serif;
+
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+
+    overflow-x: hidden;
+}
+
+
+/* =========================================================
+   PAPER TEXTURE
+   ========================================================= */
+
+body::before {
+    content: "";
+
+    position: fixed;
+    inset: 0;
+
+    pointer-events: none;
+
+    opacity: 0.035;
+
+    background-image:
+        url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.45'/%3E%3C/svg%3E");
+
+    z-index: 999;
+}
+
+
+/* =========================================================
+   PAGE
+   ========================================================= */
+
+.pieces-page {
+    width: 100%;
+    max-width: 560px;
+
+    min-height: 100vh;
+
+    margin: 0 auto;
+
+    padding:
+        70px 28px
+        100px;
+
+    text-align: center;
+
+    animation:
+        pageFadeIn 1.8s ease both;
+}
+
+@keyframes pageFadeIn {
+
+    from {
+        opacity: 0;
+        transform: translateY(8px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+}
+
+
+/* =========================================================
+   HEADER
+   ========================================================= */
+
+.pieces-header {
+    width: 100%;
+
+    text-align: center;
+}
+
+
+.eyebrow {
+    margin-bottom: 30px;
+
+    font-size: 10px;
+    font-weight: 400;
+
+    letter-spacing: 0.30em;
+
+    opacity: 0.38;
+}
+
+
+.pieces-title {
+    margin-bottom: 18px;
+
+    font-family:
+        Georgia,
+        "Times New Roman",
+        Times,
+        serif;
+
+    font-size:
+        clamp(38px, 10vw, 54px);
+
+    font-weight: 400;
+
+    line-height: 1.05;
+
+    letter-spacing: -0.045em;
+}
+
+
+.pieces-intro {
+    font-size: 13px;
+
+    line-height: 1.6;
+
+    letter-spacing: 0.05em;
+
+    opacity: 0.48;
+}
+
+
+/* =========================================================
+   MENU
+   ========================================================= */
+
+.pieces-menu {
+    width: 100%;
+
+    margin-top: 58px;
+
+    border-top:
+        1px solid rgba(31, 31, 31, 0.12);
+}
+
+
+/* =========================================================
+   PIECE ROW
+   ========================================================= */
+
+.piece-row {
+    width: 100%;
+
+    min-height: 58px;
+
+    display: grid;
+
+    grid-template-columns: 42px 1fr;
+
+    align-items: center;
+
+    border-bottom:
+        1px solid rgba(31, 31, 31, 0.12);
+
+    text-align: left;
+}
+
+
+/* Number */
+
+.piece-number {
+    font-size: 10px;
+
+    font-weight: 400;
+
+    letter-spacing: 0.12em;
+
+    opacity: 0.38;
+
+    text-align: left;
+}
+
+
+/* Name */
+
+.piece-name {
+    font-size: 14px;
+
+    font-weight: 400;
+
+    letter-spacing: 0.01em;
+
+    text-align: left;
+}
+
+
+/* =========================================================
+   LAST
+   ========================================================= */
+
+.last-piece {
+    width: 100%;
+
+    margin-top: 85px;
+
+    padding-top: 34px;
+
+    border-top:
+        1px solid rgba(31, 31, 31, 0.20);
+
+    text-align: center;
+}
+
+
+.last-label {
+    margin-bottom: 22px;
+
+    font-family:
+        Georgia,
+        "Times New Roman",
+        Times,
+        serif;
+
+    font-size: 26px;
+
+    font-weight: 400;
+
+    letter-spacing: -0.025em;
+}
+
+
+.last-message {
+    margin-bottom: 58px;
+
+    font-size: 12px;
+
+    letter-spacing: 0.10em;
+
+    opacity: 0.48;
+}
+
+
+.last-slogan {
+    margin-bottom: 9px;
+
+    font-family:
+        Georgia,
+        "Times New Roman",
+        Times,
+        serif;
+
+    font-size: 20px;
+
+    font-weight: 400;
+
+    letter-spacing: -0.02em;
+}
+
+
+.last-for {
+    font-size: 11px;
+
+    letter-spacing: 0.16em;
+
+    opacity: 0.48;
+}
+
+
+/* =========================================================
+   MOBILE
+   ========================================================= */
+
+@media (max-width: 600px) {
+
+    .pieces-page {
+        padding:
+            58px 28px
+            80px;
+    }
+
+
+    .eyebrow {
+        margin-bottom: 27px;
+    }
+
+
+    .pieces-title {
+        font-size: 42px;
+    }
+
+
+    .pieces-intro {
+        font-size: 12px;
+    }
+
+
+    .pieces-menu {
+        margin-top: 50px;
+    }
+
+
+    .piece-row {
+        min-height: 56px;
+
+        grid-template-columns:
+            38px 1fr;
+    }
+
+
+    .piece-name {
+        font-size: 13.5px;
+    }
+
+
+    .last-piece {
+        margin-top: 75px;
+    }
+
+}
+
+
+/* =========================================================
+   VERY SMALL PHONES
+   ========================================================= */
+
+@media (max-width: 380px) {
+
+    .pieces-page {
+        padding-left: 22px;
+        padding-right: 22px;
+    }
+
+
+    .pieces-title {
+        font-size: 38px;
+    }
+
+
+    .piece-row {
+        grid-template-columns:
+            36px 1fr;
+    }
+
+
+    .piece-name {
+        font-size: 13px;
+    }
+
+}
+
+
+/* =========================================================
+   REDUCED MOTION
+   ========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+    .pieces-page {
+        animation: none;
+    }
+
+}
