@@ -1,11 +1,12 @@
 /* =========================================================
-   FOR HANH — MASTER STYLE
+   FOR HANH
    30 pieces of me.
+   MASTER STYLE
    ========================================================= */
 
 
 /* =========================================================
-   01. RESET
+   01 — RESET
    ========================================================= */
 
 * {
@@ -42,7 +43,7 @@ body {
 
 
 /* =========================================================
-   02. PAPER TEXTURE
+   02 — VERY LIGHT PAPER TEXTURE
    ========================================================= */
 
 body::before {
@@ -53,24 +54,26 @@ body::before {
 
     pointer-events: none;
 
-    opacity: 0.035;
+    z-index: 9999;
+
+    opacity: 0.025;
 
     background-image:
-        url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.45'/%3E%3C/svg%3E");
-
-    z-index: 999;
+        url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='.5'/%3E%3C/svg%3E");
 }
 
 
 /* =========================================================
-   03. GLOBAL FADE-IN
+   03 — PAGE FADE IN
    ========================================================= */
 
 main {
-    animation: pageFadeIn 1.8s ease both;
+    animation:
+        pageFadeIn 1.8s ease both;
 }
 
 @keyframes pageFadeIn {
+
     from {
         opacity: 0;
         transform: translateY(8px);
@@ -84,20 +87,28 @@ main {
 
 
 /* =========================================================
-   04. HOME PAGE
+   04 — HOMEPAGE
    ========================================================= */
 
-main {
+.home {
+    position: relative;
+
+    width: 100%;
     min-height: 100vh;
 
     display: flex;
     align-items: center;
     justify-content: center;
 
-    padding: 40px 28px;
+    padding: 48px 28px;
+
+    overflow: hidden;
 }
 
-.container {
+
+/* Main content */
+
+.home-content {
     width: 100%;
     max-width: 520px;
 
@@ -105,35 +116,32 @@ main {
 }
 
 
-/* Small heading above title */
+/* =========================================================
+   05 — HOME EYEBROW
+   ========================================================= */
 
-.container::before {
-    content: "FOR HANH";
-
-    display: block;
-
+.home .eyebrow {
     margin-bottom: 34px;
 
-    font-family:
-        -apple-system,
-        BlinkMacSystemFont,
-        "Helvetica Neue",
-        Arial,
-        sans-serif;
-
     font-size: 10px;
+
     font-weight: 400;
+
+    line-height: 1;
 
     letter-spacing: 0.34em;
 
     color: #1f1f1f;
+
     opacity: 0.38;
 }
 
 
-/* Main title */
+/* =========================================================
+   06 — HOME TITLE
+   ========================================================= */
 
-.title {
+.home .title {
     margin-bottom: 18px;
 
     font-family:
@@ -154,14 +162,18 @@ main {
 }
 
 
-/* Signature */
+/* =========================================================
+   07 — SIGNATURE
+   ========================================================= */
 
-.signature {
-    margin-bottom: 72px;
+.home .signature {
+    max-width: 280px;
 
-    max-width: 250px;
+    margin-bottom: 42px;
 
     font-size: 13px;
+
+    font-weight: 400;
 
     line-height: 1.6;
 
@@ -169,46 +181,61 @@ main {
 
     color: #1f1f1f;
 
-    opacity: 0.52;
+    opacity: 0.5;
 }
 
 
-/* Tagline */
+/* =========================================================
+   08 — DIVIDER
+   ========================================================= */
 
-.tagline {
+.home .divider {
+    width: 100%;
+    max-width: 100px;
+
+    height: 1px;
+
+    margin-bottom: 42px;
+
+    background: rgba(31, 31, 31, 0.15);
+}
+
+
+/* =========================================================
+   09 — HOME TAGLINE
+   ========================================================= */
+
+.home .tagline {
     max-width: 360px;
-
-    margin-bottom: 0;
 
     font-size: 17px;
 
-    line-height: 1.75;
-
     font-weight: 400;
+
+    line-height: 1.75;
 
     letter-spacing: -0.01em;
 
     color: #1f1f1f;
 
+    opacity: 0.75;
+}
+
+.home .tagline span {
     opacity: 0.72;
 }
 
 
 /* =========================================================
-   05. ENTER LINK
+   10 — ENTER LINK
    ========================================================= */
 
-.enter-button {
+.enter-link {
     display: inline-flex;
+
     align-items: center;
 
     margin-top: 38px;
-
-    padding: 0;
-
-    border: none;
-
-    background: transparent;
 
     color: #1f1f1f;
 
@@ -225,6 +252,8 @@ main {
 
     font-weight: 400;
 
+    line-height: 1;
+
     letter-spacing: 0.18em;
 
     cursor: pointer;
@@ -234,16 +263,35 @@ main {
         transform 0.35s ease;
 }
 
-.enter-button::after {
-    content: "→";
 
+/* Remove default browser link colours */
+
+.enter-link:visited,
+.enter-link:active,
+.enter-link:focus {
+    color: #1f1f1f;
+
+    text-decoration: none;
+}
+
+
+/* ENTER text */
+
+.enter-link span:first-child {
+    display: inline-block;
+}
+
+
+/* Arrow */
+
+.enter-link .arrow {
     display: inline-block;
 
     margin-left: 10px;
 
-    font-size: 18px;
+    font-size: 19px;
 
-    line-height: 1;
+    line-height: 0.8;
 
     letter-spacing: 0;
 
@@ -251,30 +299,55 @@ main {
         transform 0.35s ease;
 }
 
-.enter-button:hover {
+
+/* Hover */
+
+.enter-link:hover {
     opacity: 0.55;
 }
 
-.enter-button:hover::after {
+.enter-link:hover .arrow {
     transform: translateX(6px);
 }
 
-.enter-button:active {
+
+/* Touch */
+
+.enter-link:active {
     transform: translateY(1px);
 }
 
 
-/* Remove browser link states */
+/* =========================================================
+   11 — BOTTOM NOTE
+   ========================================================= */
 
-.enter-button:visited,
-.enter-button:focus,
-.enter-button:active {
+.bottom-note {
+    position: absolute;
+
+    right: 28px;
+    bottom: 48px;
+
+    max-width: 190px;
+
+    font-size: 12px;
+
+    font-weight: 400;
+
+    line-height: 1.5;
+
+    letter-spacing: 0.02em;
+
     color: #1f1f1f;
+
+    opacity: 0.62;
+
+    text-align: left;
 }
 
 
 /* =========================================================
-   06. PIECES PAGE
+   12 — PIECES PAGE
    ========================================================= */
 
 .pieces-container {
@@ -283,13 +356,15 @@ main {
 
     margin: 0 auto;
 
-    padding: 72px 28px 90px;
+    padding:
+        72px 28px
+        90px;
 }
 
 
-/* Small eyebrow */
+/* Eyebrow */
 
-.eyebrow {
+.pieces-container .eyebrow {
     margin-bottom: 28px;
 
     font-size: 10px;
@@ -304,7 +379,7 @@ main {
 }
 
 
-/* "30 pieces of me." */
+/* Title */
 
 .pieces-title {
     margin-bottom: 18px;
@@ -332,6 +407,8 @@ main {
 .pieces-intro {
     font-size: 13px;
 
+    font-weight: 400;
+
     line-height: 1.6;
 
     letter-spacing: 0.05em;
@@ -343,7 +420,7 @@ main {
 
 
 /* =========================================================
-   07. PIECES LIST
+   13 — PIECES LIST
    ========================================================= */
 
 .pieces-list {
@@ -356,10 +433,11 @@ main {
 }
 
 
-/* Individual piece */
+/* Piece */
 
 .piece {
     display: flex;
+
     align-items: center;
     justify-content: space-between;
 
@@ -387,7 +465,7 @@ main {
 }
 
 
-/* Piece number */
+/* Number */
 
 .piece-number {
     flex-shrink: 0;
@@ -406,7 +484,7 @@ main {
 }
 
 
-/* Piece name */
+/* Name */
 
 .piece-name {
     flex: 1;
@@ -425,7 +503,7 @@ main {
 }
 
 
-/* Optional arrow */
+/* Arrow */
 
 .piece::after {
     content: "→";
@@ -449,11 +527,12 @@ main {
 
 
 /* =========================================================
-   08. LAST PIECE
+   14 — LAST PIECE
    ========================================================= */
 
 .last-piece {
     display: flex;
+
     align-items: center;
     justify-content: space-between;
 
@@ -493,7 +572,7 @@ main {
 
 
 /* =========================================================
-   09. RECORD PAGE
+   15 — RECORD PAGE
    ========================================================= */
 
 .record-container {
@@ -511,6 +590,7 @@ main {
         48px;
 
     display: flex;
+
     align-items: center;
     justify-content: center;
 }
@@ -524,7 +604,7 @@ main {
 
 
 /* =========================================================
-   10. BACK BUTTON
+   16 — BACK BUTTON
    ========================================================= */
 
 .back-button {
@@ -537,6 +617,7 @@ main {
     height: 36px;
 
     display: flex;
+
     align-items: center;
     justify-content: center;
 
@@ -563,7 +644,7 @@ main {
 
 
 /* =========================================================
-   11. RECORD NUMBER
+   17 — RECORD NUMBER
    ========================================================= */
 
 .record-number {
@@ -580,7 +661,7 @@ main {
 
 
 /* =========================================================
-   12. RECORD TITLE
+   18 — RECORD TITLE
    ========================================================= */
 
 .record-title {
@@ -603,7 +684,7 @@ main {
 
 
 /* =========================================================
-   13. RECORD DESCRIPTION
+   19 — RECORD DESCRIPTION
    ========================================================= */
 
 .record-description {
@@ -615,6 +696,8 @@ main {
 
     font-size: 13px;
 
+    font-weight: 400;
+
     line-height: 1.65;
 
     letter-spacing: 0.03em;
@@ -624,7 +707,7 @@ main {
 
 
 /* =========================================================
-   14. AUDIO PLAYER
+   20 — AUDIO
    ========================================================= */
 
 .audio-container {
@@ -645,35 +728,45 @@ main {
 
 
 /* =========================================================
-   15. MOBILE
+   21 — MOBILE
    ========================================================= */
 
 @media (max-width: 600px) {
 
-    main {
+    /* Homepage */
+
+    .home {
+        align-items: center;
+
         padding:
-            36px 28px;
+            40px 28px;
     }
 
-    .container {
+    .home-content {
         max-width: 100%;
     }
 
-    .container::before {
+    .home .eyebrow {
         margin-bottom: 30px;
     }
 
-    .title {
+    .home .title {
         font-size: 50px;
+
+        margin-bottom: 18px;
     }
 
-    .signature {
-        margin-bottom: 64px;
+    .home .signature {
+        margin-bottom: 42px;
 
         font-size: 12px;
     }
 
-    .tagline {
+    .home .divider {
+        margin-bottom: 38px;
+    }
+
+    .home .tagline {
         max-width: 330px;
 
         font-size: 16px;
@@ -681,8 +774,17 @@ main {
         line-height: 1.75;
     }
 
-    .enter-button {
+    .enter-link {
         margin-top: 34px;
+    }
+
+    .bottom-note {
+        right: 28px;
+        bottom: 42px;
+
+        max-width: 160px;
+
+        font-size: 11px;
     }
 
 
@@ -726,14 +828,22 @@ main {
 
 
 /* =========================================================
-   16. VERY SMALL PHONES
+   22 — VERY SMALL PHONES
    ========================================================= */
 
 @media (max-width: 380px) {
 
-    main {
+    .home {
         padding-left: 22px;
         padding-right: 22px;
+    }
+
+    .home .title {
+        font-size: 46px;
+    }
+
+    .bottom-note {
+        right: 22px;
     }
 
     .pieces-container {
@@ -741,12 +851,13 @@ main {
         padding-right: 22px;
     }
 
-    .title {
-        font-size: 46px;
-    }
-
     .pieces-title {
         font-size: 38px;
+    }
+
+    .record-container {
+        padding-left: 22px;
+        padding-right: 22px;
     }
 
     .record-title {
@@ -756,7 +867,7 @@ main {
 
 
 /* =========================================================
-   17. REDUCED MOTION
+   23 — REDUCED MOTION
    ========================================================= */
 
 @media (prefers-reduced-motion: reduce) {
