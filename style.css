@@ -1,606 +1,773 @@
-/* =========================================
-GLOBAL
-========================================= */
+/* =========================================================
+   FOR HANH — MASTER STYLE
+   30 pieces of me.
+   ========================================================= */
+
+
+/* =========================================================
+   01. RESET
+   ========================================================= */
 
 * {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
-    }
+}
 
-html,
-body {
-width: 100%;
-min-height: 100%;
+html {
+    width: 100%;
+    min-height: 100%;
+    background: #f7f4ef;
 }
 
 body {
-min-height: 100vh;
+    width: 100%;
+    min-height: 100vh;
 
-background: #f7f4ef;
-color: #1f1f1f;
-font-family:
-    -apple-system,
-    BlinkMacSystemFont,
-    "Helvetica Neue",
-    Arial,
-    sans-serif;
--webkit-font-smoothing: antialiased;
-position: relative;
+    background: #f7f4ef;
+    color: #1f1f1f;
 
+    font-family:
+        -apple-system,
+        BlinkMacSystemFont,
+        "Helvetica Neue",
+        Arial,
+        sans-serif;
+
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+
+    overflow-x: hidden;
 }
 
-/* =========================================
-SUBTLE PAPER TEXTURE
-========================================= */
+
+/* =========================================================
+   02. PAPER TEXTURE
+   ========================================================= */
 
 body::before {
-content: “”;
+    content: "";
 
-position: fixed;
-inset: 0;
-pointer-events: none;
-opacity: 0.035;
-background-image:
-    url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.45'/%3E%3C/svg%3E");
-z-index: 999;
+    position: fixed;
+    inset: 0;
 
+    pointer-events: none;
+
+    opacity: 0.035;
+
+    background-image:
+        url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.45'/%3E%3C/svg%3E");
+
+    z-index: 999;
 }
 
-/* =========================================
-HOME PAGE
-========================================= */
+
+/* =========================================================
+   03. GLOBAL FADE-IN
+   ========================================================= */
 
 main {
-min-height: 100vh;
+    animation: pageFadeIn 1.8s ease both;
+}
 
-display: flex;
-align-items: center;
-justify-content: center;
-padding: 32px 24px;
-animation:
-    homeFadeIn
-    3s
-    cubic-bezier(0.22, 1, 0.36, 1)
-    both;
+@keyframes pageFadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(8px);
+    }
 
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+/* =========================================================
+   04. HOME PAGE
+   ========================================================= */
+
+main {
+    min-height: 100vh;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 40px 28px;
 }
 
 .container {
-width: 100%;
+    width: 100%;
+    max-width: 520px;
 
-max-width: 480px;
-text-align: center;
-
+    text-align: left;
 }
 
-/* =========================================
-HOME TYPOGRAPHY
-========================================= */
+
+/* Small heading above title */
+
+.container::before {
+    content: "FOR HANH";
+
+    display: block;
+
+    margin-bottom: 34px;
+
+    font-family:
+        -apple-system,
+        BlinkMacSystemFont,
+        "Helvetica Neue",
+        Arial,
+        sans-serif;
+
+    font-size: 10px;
+    font-weight: 400;
+
+    letter-spacing: 0.34em;
+
+    color: #1f1f1f;
+    opacity: 0.38;
+}
+
+
+/* Main title */
 
 .title {
-font-family:
-Georgia,
-“Times New Roman”,
-serif;
+    margin-bottom: 18px;
 
-font-size: clamp(34px, 9vw, 46px);
-font-weight: 400;
-line-height: 1.1;
-letter-spacing: -0.045em;
-margin-bottom: 14px;
+    font-family:
+        Georgia,
+        "Times New Roman",
+        Times,
+        serif;
 
+    font-size: clamp(48px, 13vw, 72px);
+
+    font-weight: 400;
+
+    line-height: 0.98;
+
+    letter-spacing: -0.055em;
+
+    color: #1f1f1f;
 }
+
+
+/* Signature */
 
 .signature {
-font-size: 11px;
+    margin-bottom: 72px;
 
-letter-spacing: 0.08em;
-opacity: 0.48;
-margin-bottom: 68px;
+    max-width: 250px;
 
+    font-size: 13px;
+
+    line-height: 1.6;
+
+    letter-spacing: 0.08em;
+
+    color: #1f1f1f;
+
+    opacity: 0.52;
 }
+
+
+/* Tagline */
 
 .tagline {
-font-size: 16px;
+    max-width: 360px;
 
-line-height: 1.75;
-font-weight: 400;
-letter-spacing: -0.01em;
-opacity: 0.76;
+    margin-bottom: 0;
 
+    font-size: 17px;
+
+    line-height: 1.75;
+
+    font-weight: 400;
+
+    letter-spacing: -0.01em;
+
+    color: #1f1f1f;
+
+    opacity: 0.72;
 }
 
-/* =========================================
-ENTER
-========================================= */
+
+/* =========================================================
+   05. ENTER LINK
+   ========================================================= */
 
 .enter-button {
-display: inline-flex;
+    display: inline-flex;
+    align-items: center;
 
-align-items: center;
-gap: 9px;
-margin-top: 42px;
-padding: 8px 0;
-color: #1f1f1f;
-text-decoration: none;
-font-size: 10px;
-letter-spacing: 0.18em;
-transition:
-    opacity 0.4s ease;
+    margin-top: 38px;
 
+    padding: 0;
+
+    border: none;
+
+    background: transparent;
+
+    color: #1f1f1f;
+
+    text-decoration: none;
+
+    font-family:
+        -apple-system,
+        BlinkMacSystemFont,
+        "Helvetica Neue",
+        Arial,
+        sans-serif;
+
+    font-size: 12px;
+
+    font-weight: 400;
+
+    letter-spacing: 0.18em;
+
+    cursor: pointer;
+
+    transition:
+        opacity 0.35s ease,
+        transform 0.35s ease;
 }
 
 .enter-button::after {
-content: “→”;
+    content: "→";
 
-display: inline-block;
-font-size: 14px;
-letter-spacing: 0;
-transform: translateX(0);
-transition:
-    transform 0.45s
-    cubic-bezier(0.22, 1, 0.36, 1);
+    display: inline-block;
 
+    margin-left: 10px;
+
+    font-size: 18px;
+
+    line-height: 1;
+
+    letter-spacing: 0;
+
+    transition:
+        transform 0.35s ease;
 }
 
 .enter-button:hover {
-opacity: 0.55;
+    opacity: 0.55;
 }
 
 .enter-button:hover::after {
-transform: translateX(7px);
+    transform: translateX(6px);
 }
 
 .enter-button:active {
-opacity: 0.35;
+    transform: translateY(1px);
 }
 
-/* =========================================
-HOME ANIMATION
-========================================= */
 
-@keyframes homeFadeIn {
+/* Remove browser link states */
 
-from {
-    opacity: 0;
-    transform: translateY(10px);
-}
-to {
-    opacity: 1;
-    transform: translateY(0);
+.enter-button:visited,
+.enter-button:focus,
+.enter-button:active {
+    color: #1f1f1f;
 }
 
-}
 
-/* =========================================
-PIECES PAGE
-========================================= */
-
-.pieces-page {
-min-height: 100vh;
-
-padding: 0 22px;
-animation:
-    piecesFadeIn
-    2.2s
-    ease
-    both;
-
-}
+/* =========================================================
+   06. PIECES PAGE
+   ========================================================= */
 
 .pieces-container {
-width: 100%;
+    width: 100%;
+    max-width: 520px;
 
-max-width: 560px;
-margin: 0 auto;
-padding: 72px 0 56px;
+    margin: 0 auto;
 
+    padding: 72px 28px 90px;
 }
 
-/* =========================================
-PIECES HEADER
-========================================= */
 
-.pieces-header {
-padding-bottom: 52px;
-}
+/* Small eyebrow */
 
 .eyebrow {
-margin-bottom: 22px;
+    margin-bottom: 28px;
 
-font-size: 9px;
-line-height: 1;
-letter-spacing: 0.24em;
-opacity: 0.38;
+    font-size: 10px;
 
+    font-weight: 400;
+
+    letter-spacing: 0.28em;
+
+    color: #1f1f1f;
+
+    opacity: 0.38;
 }
+
+
+/* "30 pieces of me." */
 
 .pieces-title {
-margin: 0 0 16px;
+    margin-bottom: 18px;
 
-font-family:
-    Georgia,
-    "Times New Roman",
-    serif;
-font-size: clamp(30px, 8vw, 42px);
-font-weight: 400;
-line-height: 1.1;
-letter-spacing: -0.045em;
+    font-family:
+        Georgia,
+        "Times New Roman",
+        Times,
+        serif;
 
+    font-size: clamp(38px, 10vw, 54px);
+
+    font-weight: 400;
+
+    line-height: 1.05;
+
+    letter-spacing: -0.045em;
+
+    color: #1f1f1f;
 }
+
+
+/* Intro */
 
 .pieces-intro {
-margin: 0;
+    font-size: 13px;
 
-font-size: 12px;
-line-height: 1.7;
-letter-spacing: 0.055em;
-opacity: 0.46;
+    line-height: 1.6;
 
+    letter-spacing: 0.05em;
+
+    color: #1f1f1f;
+
+    opacity: 0.48;
 }
 
-/* =========================================
-PIECES LIST
-========================================= */
+
+/* =========================================================
+   07. PIECES LIST
+   ========================================================= */
 
 .pieces-list {
-margin: 0;
+    width: 100%;
 
-border-top:
-    1px solid
-    rgba(31, 31, 31, 0.13);
+    margin-top: 58px;
 
+    border-top:
+        1px solid rgba(31, 31, 31, 0.12);
 }
 
-/*
-These are intentionally NOT links.
 
-The list is only a visual archive.
-Audio is accessed through QR/token URLs.
-
-*/
+/* Individual piece */
 
 .piece {
-position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
 
-display: grid;
-grid-template-columns: 42px 1fr;
-align-items: center;
-width: 100%;
-min-height: 58px;
-border-bottom:
-    1px solid
-    rgba(31, 31, 31, 0.10);
-transition:
-    opacity 0.35s ease,
-    padding-left 0.35s ease;
+    width: 100%;
 
-}
+    padding: 19px 0;
 
-.piece::after {
-content: “”;
+    border-bottom:
+        1px solid rgba(31, 31, 31, 0.12);
 
-position: absolute;
-left: 42px;
-right: 0;
-bottom: -1px;
-height: 1px;
-background:
-    rgba(31, 31, 31, 0.14);
-transform: scaleX(0);
-transform-origin: left;
-transition:
-    transform 0.45s ease;
+    color: #1f1f1f;
 
+    text-decoration: none;
+
+    transition:
+        opacity 0.3s ease,
+        padding 0.3s ease;
 }
 
 .piece:hover {
-padding-left: 5px;
+    opacity: 0.55;
 
-opacity: 0.62;
+    padding-left: 6px;
+    padding-right: 6px;
+}
 
+
+/* Piece number */
+
+.piece-number {
+    flex-shrink: 0;
+
+    width: 38px;
+
+    font-size: 10px;
+
+    font-weight: 400;
+
+    letter-spacing: 0.12em;
+
+    text-align: left;
+
+    opacity: 0.38;
+}
+
+
+/* Piece name */
+
+.piece-name {
+    flex: 1;
+
+    padding-right: 18px;
+
+    font-size: 14px;
+
+    font-weight: 400;
+
+    letter-spacing: 0.01em;
+
+    text-align: left;
+
+    color: #1f1f1f;
+}
+
+
+/* Optional arrow */
+
+.piece::after {
+    content: "→";
+
+    flex-shrink: 0;
+
+    font-size: 15px;
+
+    opacity: 0.28;
+
+    transition:
+        transform 0.3s ease,
+        opacity 0.3s ease;
 }
 
 .piece:hover::after {
-transform: scaleX(1);
+    opacity: 0.65;
+
+    transform: translateX(4px);
 }
 
-/* =========================================
-PIECE NUMBER
-========================================= */
 
-.piece-number {
-display: block;
-
-font-size: 9px;
-line-height: 1;
-letter-spacing: 0.12em;
-opacity: 0.34;
-
-}
-
-/* =========================================
-PIECE NAME
-========================================= */
-
-.piece-name {
-display: block;
-
-font-family:
-    -apple-system,
-    BlinkMacSystemFont,
-    "Helvetica Neue",
-    Arial,
-    sans-serif;
-font-size: 13px;
-font-weight: 400;
-line-height: 1.4;
-letter-spacing: 0.015em;
-
-}
-
-/* =========================================
-LAST
-========================================= */
+/* =========================================================
+   08. LAST PIECE
+   ========================================================= */
 
 .last-piece {
-margin-top: 72px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
 
-padding: 25px 0 0;
-border-top:
-    1px solid
-    rgba(31, 31, 31, 0.22);
-text-align: center;
+    margin-top: 64px;
 
+    padding-top: 22px;
+
+    border-top:
+        1px solid rgba(31, 31, 31, 0.2);
+
+    color: #1f1f1f;
+
+    text-decoration: none;
+
+    opacity: 0.7;
+
+    transition:
+        opacity 0.35s ease,
+        transform 0.35s ease;
 }
 
-.last-label {
-margin-bottom: 11px;
-
-font-family:
-    Georgia,
-    "Times New Roman",
-    serif;
-font-size: 18px;
-font-weight: 400;
-letter-spacing: 0.08em;
-
-}
-
-.last-note {
-margin: 0;
-
-font-size: 10px;
-letter-spacing: 0.13em;
-opacity: 0.42;
-
-}
-
-/* =========================================
-PIECES FOOTER
-========================================= */
-
-.pieces-footer {
-display: flex;
-
-justify-content: space-between;
-margin-top: 75px;
-padding-top: 18px;
-border-top:
-    1px solid
-    rgba(31, 31, 31, 0.08);
-font-size: 9px;
-letter-spacing: 0.13em;
-opacity: 0.3;
-
-}
-
-/* =========================================
-PIECES ANIMATION
-========================================= */
-
-@keyframes piecesFadeIn {
-
-from {
-    opacity: 0;
-    transform: translateY(8px);
-}
-to {
+.last-piece:hover {
     opacity: 1;
-    transform: translateY(0);
+
+    transform: translateX(4px);
 }
 
+.last-piece .piece-name {
+    font-family:
+        Georgia,
+        "Times New Roman",
+        Times,
+        serif;
+
+    font-size: 17px;
 }
 
-/* =========================================
-RECORD / AUDIO PAGE
-========================================= */
+
+/* =========================================================
+   09. RECORD PAGE
+   ========================================================= */
 
 .record-container {
-position: relative;
+    position: relative;
 
-width: 100%;
-max-width: 520px;
-min-height: 100vh;
-margin: 0 auto;
-padding: 32px 24px;
-display: flex;
-align-items: center;
-justify-content: center;
-animation:
-    recordFadeIn
-    1.8s
-    ease
-    both;
+    width: 100%;
+    max-width: 520px;
 
+    min-height: 100vh;
+
+    margin: 0 auto;
+
+    padding:
+        32px 28px
+        48px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
+
 
 .record-content {
-width: 100%;
+    width: 100%;
 
-text-align: center;
-
+    text-align: center;
 }
 
-/* =========================================
-BACK BUTTON
-========================================= */
+
+/* =========================================================
+   10. BACK BUTTON
+   ========================================================= */
 
 .back-button {
-position: absolute;
+    position: absolute;
 
-top: 32px;
-left: 24px;
-width: 36px;
-height: 36px;
-display: flex;
-align-items: center;
-justify-content: center;
-color: #1f1f1f;
-text-decoration: none;
-font-size: 18px;
-opacity: 0.5;
-transition:
-    opacity 0.3s ease,
-    transform 0.3s ease;
+    top: 28px;
+    left: 24px;
 
+    width: 36px;
+    height: 36px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    color: #1f1f1f;
+
+    text-decoration: none;
+
+    font-size: 20px;
+
+    font-weight: 300;
+
+    opacity: 0.45;
+
+    transition:
+        opacity 0.3s ease,
+        transform 0.3s ease;
 }
 
 .back-button:hover {
-opacity: 1;
+    opacity: 1;
 
-transform: translateX(-2px);
-
+    transform: translateX(-3px);
 }
 
-/* =========================================
-RECORD TYPOGRAPHY
-========================================= */
+
+/* =========================================================
+   11. RECORD NUMBER
+   ========================================================= */
 
 .record-number {
-margin-bottom: 18px;
+    margin-bottom: 20px;
 
-font-size: 10px;
-letter-spacing: 0.2em;
-opacity: 0.4;
+    font-size: 10px;
 
+    font-weight: 400;
+
+    letter-spacing: 0.28em;
+
+    opacity: 0.4;
 }
+
+
+/* =========================================================
+   12. RECORD TITLE
+   ========================================================= */
 
 .record-title {
-margin-bottom: 14px;
+    margin-bottom: 16px;
 
-font-family:
-    Georgia,
-    "Times New Roman",
-    serif;
-font-size: 32px;
-font-weight: 400;
-line-height: 1.15;
-letter-spacing: -0.04em;
+    font-family:
+        Georgia,
+        "Times New Roman",
+        Times,
+        serif;
 
+    font-size: clamp(38px, 10vw, 56px);
+
+    font-weight: 400;
+
+    line-height: 1.05;
+
+    letter-spacing: -0.045em;
 }
+
+
+/* =========================================================
+   13. RECORD DESCRIPTION
+   ========================================================= */
 
 .record-description {
-margin-bottom: 48px;
+    max-width: 320px;
 
-font-size: 13px;
-letter-spacing: 0.03em;
-opacity: 0.5;
+    margin:
+        0 auto
+        48px;
 
+    font-size: 13px;
+
+    line-height: 1.65;
+
+    letter-spacing: 0.03em;
+
+    opacity: 0.48;
 }
 
-/* =========================================
-AUDIO
-========================================= */
+
+/* =========================================================
+   14. AUDIO PLAYER
+   ========================================================= */
 
 .audio-container {
-width: 100%;
+    width: 100%;
 
-display: flex;
-justify-content: center;
+    display: flex;
 
+    justify-content: center;
 }
 
 .audio-container audio {
-width: 100%;
+    width: 100%;
 
-max-width: 360px;
+    max-width: 360px;
 
-}
-
-/* =========================================
-RECORD ANIMATION
-========================================= */
-
-@keyframes recordFadeIn {
-
-from {
-    opacity: 0;
-    transform: translateY(8px);
-}
-to {
-    opacity: 1;
-    transform: translateY(0);
+    height: 42px;
 }
 
+
+/* =========================================================
+   15. MOBILE
+   ========================================================= */
+
+@media (max-width: 600px) {
+
+    main {
+        padding:
+            36px 28px;
+    }
+
+    .container {
+        max-width: 100%;
+    }
+
+    .container::before {
+        margin-bottom: 30px;
+    }
+
+    .title {
+        font-size: 50px;
+    }
+
+    .signature {
+        margin-bottom: 64px;
+
+        font-size: 12px;
+    }
+
+    .tagline {
+        max-width: 330px;
+
+        font-size: 16px;
+
+        line-height: 1.75;
+    }
+
+    .enter-button {
+        margin-top: 34px;
+    }
+
+
+    /* Pieces */
+
+    .pieces-container {
+        padding:
+            58px 28px
+            80px;
+    }
+
+    .pieces-title {
+        font-size: 42px;
+    }
+
+    .pieces-list {
+        margin-top: 48px;
+    }
+
+    .piece {
+        padding: 18px 0;
+    }
+
+
+    /* Record */
+
+    .record-container {
+        padding:
+            32px 28px
+            48px;
+    }
+
+    .record-title {
+        font-size: 42px;
+    }
+
+    .record-description {
+        margin-bottom: 42px;
+    }
 }
 
-/* =========================================
-MOBILE
-========================================= */
 
-@media (max-width: 480px) {
+/* =========================================================
+   16. VERY SMALL PHONES
+   ========================================================= */
 
-main {
-    padding-left: 22px;
-    padding-right: 22px;
-}
-.pieces-container {
-    padding-top: 64px;
-}
-.pieces-header {
-    padding-bottom: 44px;
-}
-.piece {
-    min-height: 56px;
-    grid-template-columns: 38px 1fr;
-}
-.piece::after {
-    left: 38px;
-}
-.piece-name {
-    font-size: 13px;
-}
-.record-container {
-    padding-left: 22px;
-    padding-right: 22px;
-}
-.back-button {
-    left: 22px;
+@media (max-width: 380px) {
+
+    main {
+        padding-left: 22px;
+        padding-right: 22px;
+    }
+
+    .pieces-container {
+        padding-left: 22px;
+        padding-right: 22px;
+    }
+
+    .title {
+        font-size: 46px;
+    }
+
+    .pieces-title {
+        font-size: 38px;
+    }
+
+    .record-title {
+        font-size: 38px;
+    }
 }
 
-}
 
-/* =========================================
-LARGER SCREENS
-========================================= */
+/* =========================================================
+   17. REDUCED MOTION
+   ========================================================= */
 
-@media (min-width: 700px) {
+@media (prefers-reduced-motion: reduce) {
 
-main {
-    padding-left: 32px;
-    padding-right: 32px;
-}
-.pieces-page {
-    padding-left: 32px;
-    padding-right: 32px;
-}
-.pieces-container {
-    padding-top: 90px;
-}
-.piece {
-    min-height: 62px;
-}
+    main {
+        animation: none;
+    }
 
+    *,
+    *::before,
+    *::after {
+        transition: none !important;
+    }
 }
