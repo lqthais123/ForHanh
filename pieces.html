@@ -1,203 +1,799 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>30 Pieces of Me — For Hanh</title>
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
 
-    <link rel="stylesheet" href="style.css">
+    <title>30 pieces of me — For Hanh</title>
+
+    <style>
+
+        /* =========================
+           RESET
+        ========================= */
+
+        * {
+            box-sizing: border-box;
+        }
+
+        html,
+        body {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            min-height: 100%;
+        }
+
+        body {
+            background: #f4f0e8;
+        }
+
+
+        /* =========================
+           PAGE
+        ========================= */
+
+        .pieces-page {
+            position: relative;
+
+            width: 100%;
+            min-height: 100vh;
+            min-height: 100svh;
+
+            padding: 70px 24px 55px;
+
+            overflow: hidden;
+
+            background: #f4f0e8;
+            color: #171614;
+        }
+
+
+        /* =========================
+           PAPER TEXTURE
+        ========================= */
+
+        .pieces-page::before {
+            content: "";
+
+            position: fixed;
+            inset: 0;
+
+            background-image:
+                radial-gradient(
+                    rgba(0, 0, 0, 0.035) 0.7px,
+                    transparent 0.7px
+                );
+
+            background-size: 5px 5px;
+
+            opacity: 0.35;
+
+            pointer-events: none;
+        }
+
+
+        /* =========================
+           CONTENT
+        ========================= */
+
+        .pieces-content {
+            position: relative;
+            z-index: 1;
+
+            width: min(100%, 520px);
+
+            margin: 0 auto;
+        }
+
+
+        /* =========================
+           HEADER
+        ========================= */
+
+        .pieces-header {
+            text-align: center;
+
+            margin-bottom: 55px;
+        }
+
+
+        .header-label {
+            margin: 0 0 15px;
+
+            font-family:
+                Arial,
+                Helvetica,
+                sans-serif;
+
+            font-size: 9px;
+
+            font-weight: 400;
+
+            letter-spacing: 0.28em;
+
+            color: #8c877e;
+
+            opacity: 0;
+
+            transform: translateY(6px);
+
+            animation:
+                reveal
+                1s
+                cubic-bezier(0.22, 1, 0.36, 1)
+                0.25s
+                forwards;
+        }
+
+
+        .header-title {
+            margin: 0;
+
+            font-family:
+                Georgia,
+                "Times New Roman",
+                serif;
+
+            font-size: clamp(34px, 9vw, 50px);
+
+            font-weight: 400;
+
+            line-height: 1.1;
+
+            letter-spacing: -0.025em;
+
+            opacity: 0;
+
+            transform: translateY(7px);
+
+            animation:
+                reveal
+                1s
+                cubic-bezier(0.22, 1, 0.36, 1)
+                0.5s
+                forwards;
+        }
+
+
+        .header-signature {
+            margin: 13px 0 0;
+
+            font-family:
+                Arial,
+                Helvetica,
+                sans-serif;
+
+            font-size: 10px;
+
+            font-weight: 300;
+
+            letter-spacing: 0.15em;
+
+            color: #77736c;
+
+            opacity: 0;
+
+            transform: translateY(6px);
+
+            animation:
+                reveal
+                1s
+                cubic-bezier(0.22, 1, 0.36, 1)
+                0.8s
+                forwards;
+        }
+
+
+        /* =========================
+           LIST
+        ========================= */
+
+        .pieces-list {
+            width: 100%;
+        }
+
+
+        .piece {
+            display: grid;
+
+            grid-template-columns: 42px 1fr;
+
+            align-items: baseline;
+
+            width: 100%;
+
+            padding: 13px 0;
+
+            border-bottom: 1px solid rgba(60, 56, 50, 0.10);
+
+            opacity: 0;
+
+            transform: translateY(5px);
+
+            animation:
+                pieceReveal
+                0.75s
+                cubic-bezier(0.22, 1, 0.36, 1)
+                forwards;
+        }
+
+
+        /* =========================
+           NUMBER
+        ========================= */
+
+        .piece-number {
+            font-family:
+                Arial,
+                Helvetica,
+                sans-serif;
+
+            font-size: 9px;
+
+            font-weight: 400;
+
+            letter-spacing: 0.08em;
+
+            color: #aaa49b;
+        }
+
+
+        /* =========================
+           TITLE
+        ========================= */
+
+        .piece-title {
+            font-family:
+                Georgia,
+                "Times New Roman",
+                serif;
+
+            font-size: 16px;
+
+            font-weight: 400;
+
+            line-height: 1.4;
+
+            color: #302d29;
+        }
+
+
+        /* =========================
+           SPECIAL RECORDS
+        ========================= */
+
+        .piece.special .piece-title {
+            color: #777169;
+        }
+
+
+        /* =========================
+           LAST
+        ========================= */
+
+        .piece.last {
+            margin-top: 24px;
+
+            padding-top: 20px;
+
+            border-bottom: none;
+        }
+
+
+        .piece.last .piece-number {
+            color: #9f988d;
+        }
+
+
+        .piece.last .piece-title {
+            color: #302d29;
+        }
+
+
+        /* =========================
+           FOOTER
+        ========================= */
+
+        .pieces-footer {
+            margin-top: 58px;
+
+            text-align: center;
+
+            opacity: 0;
+
+            animation:
+                footerReveal
+                1.2s
+                cubic-bezier(0.22, 1, 0.36, 1)
+                3.4s
+                forwards;
+        }
+
+
+        .footer-main {
+            margin: 0;
+
+            font-family:
+                Georgia,
+                "Times New Roman",
+                serif;
+
+            font-size: 14px;
+
+            font-weight: 400;
+
+            letter-spacing: 0.02em;
+
+            color: #625d55;
+        }
+
+
+        .footer-name {
+            margin: 12px 0 0;
+
+            font-family:
+                Arial,
+                Helvetica,
+                sans-serif;
+
+            font-size: 9px;
+
+            font-weight: 300;
+
+            letter-spacing: 0.22em;
+
+            color: #aaa49b;
+        }
+
+
+        /* =========================
+           ANIMATION
+        ========================= */
+
+        @keyframes reveal {
+
+            from {
+                opacity: 0;
+                transform: translateY(7px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+
+        }
+
+
+        @keyframes pieceReveal {
+
+            from {
+                opacity: 0;
+                transform: translateY(5px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+
+        }
+
+
+        @keyframes footerReveal {
+
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
+
+        }
+
+
+        /* =========================
+           REDUCED MOTION
+        ========================= */
+
+        @media (prefers-reduced-motion: reduce) {
+
+            .header-label,
+            .header-title,
+            .header-signature,
+            .piece,
+            .pieces-footer {
+                opacity: 1;
+
+                transform: none;
+
+                animation: none;
+            }
+
+        }
+
+
+        /* =========================
+           MOBILE
+        ========================= */
+
+        @media (max-width: 600px) {
+
+            .pieces-page {
+                padding:
+                    58px
+                    22px
+                    45px;
+            }
+
+
+            .pieces-header {
+                margin-bottom: 42px;
+            }
+
+
+            .piece {
+                grid-template-columns: 38px 1fr;
+
+                padding: 12px 0;
+            }
+
+
+            .piece-title {
+                font-size: 15px;
+            }
+
+
+            .pieces-footer {
+                margin-top: 48px;
+            }
+
+        }
+
+    </style>
 </head>
 
-<body class="pieces-page">
 
-    <main class="pieces">
+<body>
 
-        <header class="pieces-header">
+    <main class="pieces-page">
 
-            <p class="pieces-eyebrow">
-                FOR HANH
-            </p>
-
-            <h1 class="pieces-title">
-                30 pieces of me.
-            </h1>
-
-            <p class="pieces-intro">
-                Some things are meant to be found.
-            </p>
-
-        </header>
+        <div class="pieces-content">
 
 
-        <section class="pieces-list" aria-label="Pieces">
+            <!-- =====================
+                 HEADER
+            ====================== -->
 
-            <div class="piece">
-                <span class="piece-number">01</span>
-                <span class="piece-name">Beginning</span>
-            </div>
+            <header class="pieces-header">
 
-            <div class="piece">
-                <span class="piece-number">02</span>
-                <span class="piece-name">Untitled 01</span>
-            </div>
+                <p class="header-label">
+                    FOR HANH
+                </p>
 
-            <div class="piece">
-                <span class="piece-number">03</span>
-                <span class="piece-name">Sleepless</span>
-            </div>
+                <h1 class="header-title">
+                    For Hanh
+                </h1>
 
-            <div class="piece">
-                <span class="piece-number">04</span>
-                <span class="piece-name">Untitled 02</span>
-            </div>
+                <p class="header-signature">
+                    From Thai Luong with love
+                </p>
 
-            <div class="piece">
-                <span class="piece-number">05</span>
-                <span class="piece-name">Special 01</span>
-            </div>
-
-            <div class="piece">
-                <span class="piece-number">06</span>
-                <span class="piece-name">Hug</span>
-            </div>
-
-            <div class="piece">
-                <span class="piece-number">07</span>
-                <span class="piece-name">Question</span>
-            </div>
-
-            <div class="piece">
-                <span class="piece-number">08</span>
-                <span class="piece-name">Special 02</span>
-            </div>
-
-            <div class="piece">
-                <span class="piece-number">09</span>
-                <span class="piece-name">Lonely</span>
-            </div>
-
-            <div class="piece">
-                <span class="piece-number">10</span>
-                <span class="piece-name">Sharing</span>
-            </div>
-
-            <div class="piece">
-                <span class="piece-number">11</span>
-                <span class="piece-name">Special 03</span>
-            </div>
-
-            <div class="piece">
-                <span class="piece-number">12</span>
-                <span class="piece-name">Bad Day</span>
-            </div>
-
-            <div class="piece">
-                <span class="piece-number">13</span>
-                <span class="piece-name">Guess</span>
-            </div>
-
-            <div class="piece">
-                <span class="piece-number">14</span>
-                <span class="piece-name">Special 04</span>
-            </div>
-
-            <div class="piece">
-                <span class="piece-number">15</span>
-                <span class="piece-name">Việt Nam</span>
-            </div>
-
-            <div class="piece">
-                <span class="piece-number">16</span>
-                <span class="piece-name">Miss</span>
-            </div>
-
-            <div class="piece">
-                <span class="piece-number">17</span>
-                <span class="piece-name">Special 05</span>
-            </div>
-
-            <div class="piece">
-                <span class="piece-number">18</span>
-                <span class="piece-name">1812</span>
-            </div>
-
-            <div class="piece">
-                <span class="piece-number">19</span>
-                <span class="piece-name">Untitled 03</span>
-            </div>
-
-            <div class="piece">
-                <span class="piece-number">20</span>
-                <span class="piece-name">Special 06</span>
-            </div>
-
-            <div class="piece">
-                <span class="piece-number">21</span>
-                <span class="piece-name">Happy</span>
-            </div>
-
-            <div class="piece">
-                <span class="piece-number">22</span>
-                <span class="piece-name">Special 07</span>
-            </div>
-
-            <div class="piece">
-                <span class="piece-number">23</span>
-                <span class="piece-name">Believe</span>
-            </div>
-
-            <div class="piece">
-                <span class="piece-number">24</span>
-                <span class="piece-name">Special 08</span>
-            </div>
-
-            <div class="piece">
-                <span class="piece-number">25</span>
-                <span class="piece-name">Untitled 04</span>
-            </div>
-
-            <div class="piece">
-                <span class="piece-number">26</span>
-                <span class="piece-name">Em</span>
-            </div>
-
-            <div class="piece">
-                <span class="piece-number">27</span>
-                <span class="piece-name">Remind</span>
-            </div>
-
-            <div class="piece">
-                <span class="piece-number">28</span>
-                <span class="piece-name">Anh</span>
-            </div>
-
-            <div class="piece">
-                <span class="piece-number">29</span>
-                <span class="piece-name">Unsaid</span>
-            </div>
-
-            <div class="piece piece-last">
-                <span class="piece-number">LAST</span>
-                <span class="piece-name">There is one more thing</span>
-            </div>
-
-        </section>
+            </header>
 
 
-        <footer class="pieces-footer">
+            <!-- =====================
+                 PIECES
+            ====================== -->
 
-            <p>
-                30 pieces of me.
-            </p>
+            <section class="pieces-list">
 
-            <p>
-                For Hanh.
-            </p>
 
-        </footer>
+                <div
+                    class="piece"
+                    style="animation-delay: 1.05s;"
+                >
+                    <span class="piece-number">01.</span>
+                    <span class="piece-title">beginning</span>
+                </div>
+
+
+                <div
+                    class="piece"
+                    style="animation-delay: 1.11s;"
+                >
+                    <span class="piece-number">02.</span>
+                    <span class="piece-title">Untitled 01</span>
+                </div>
+
+
+                <div
+                    class="piece"
+                    style="animation-delay: 1.17s;"
+                >
+                    <span class="piece-number">03.</span>
+                    <span class="piece-title">Sleepless</span>
+                </div>
+
+
+                <div
+                    class="piece"
+                    style="animation-delay: 1.23s;"
+                >
+                    <span class="piece-number">04.</span>
+                    <span class="piece-title">Untitled 02</span>
+                </div>
+
+
+                <div
+                    class="piece special"
+                    style="animation-delay: 1.29s;"
+                >
+                    <span class="piece-number">05.</span>
+                    <span class="piece-title">Special 01</span>
+                </div>
+
+
+                <div
+                    class="piece"
+                    style="animation-delay: 1.35s;"
+                >
+                    <span class="piece-number">06.</span>
+                    <span class="piece-title">Hug</span>
+                </div>
+
+
+                <div
+                    class="piece"
+                    style="animation-delay: 1.41s;"
+                >
+                    <span class="piece-number">07.</span>
+                    <span class="piece-title">Question</span>
+                </div>
+
+
+                <div
+                    class="piece special"
+                    style="animation-delay: 1.47s;"
+                >
+                    <span class="piece-number">08.</span>
+                    <span class="piece-title">Special 02</span>
+                </div>
+
+
+                <div
+                    class="piece"
+                    style="animation-delay: 1.53s;"
+                >
+                    <span class="piece-number">09.</span>
+                    <span class="piece-title">Lonely</span>
+                </div>
+
+
+                <div
+                    class="piece"
+                    style="animation-delay: 1.59s;"
+                >
+                    <span class="piece-number">10.</span>
+                    <span class="piece-title">Sharing</span>
+                </div>
+
+
+                <div
+                    class="piece special"
+                    style="animation-delay: 1.65s;"
+                >
+                    <span class="piece-number">11.</span>
+                    <span class="piece-title">Special 03</span>
+                </div>
+
+
+                <div
+                    class="piece"
+                    style="animation-delay: 1.71s;"
+                >
+                    <span class="piece-number">12.</span>
+                    <span class="piece-title">Bad Day</span>
+                </div>
+
+
+                <div
+                    class="piece"
+                    style="animation-delay: 1.77s;"
+                >
+                    <span class="piece-number">13.</span>
+                    <span class="piece-title">Guess</span>
+                </div>
+
+
+                <div
+                    class="piece special"
+                    style="animation-delay: 1.83s;"
+                >
+                    <span class="piece-number">14.</span>
+                    <span class="piece-title">Special 04</span>
+                </div>
+
+
+                <div
+                    class="piece"
+                    style="animation-delay: 1.89s;"
+                >
+                    <span class="piece-number">15.</span>
+                    <span class="piece-title">Việt Nam</span>
+                </div>
+
+
+                <div
+                    class="piece"
+                    style="animation-delay: 1.95s;"
+                >
+                    <span class="piece-number">16.</span>
+                    <span class="piece-title">Miss</span>
+                </div>
+
+
+                <div
+                    class="piece special"
+                    style="animation-delay: 2.01s;"
+                >
+                    <span class="piece-number">17.</span>
+                    <span class="piece-title">Special 05</span>
+                </div>
+
+
+                <div
+                    class="piece"
+                    style="animation-delay: 2.07s;"
+                >
+                    <span class="piece-number">18.</span>
+                    <span class="piece-title">1812</span>
+                </div>
+
+
+                <div
+                    class="piece"
+                    style="animation-delay: 2.13s;"
+                >
+                    <span class="piece-number">19.</span>
+                    <span class="piece-title">Untitled 03</span>
+                </div>
+
+
+                <div
+                    class="piece special"
+                    style="animation-delay: 2.19s;"
+                >
+                    <span class="piece-number">20.</span>
+                    <span class="piece-title">Special 06</span>
+                </div>
+
+
+                <div
+                    class="piece"
+                    style="animation-delay: 2.25s;"
+                >
+                    <span class="piece-number">21.</span>
+                    <span class="piece-title">Happy</span>
+                </div>
+
+
+                <div
+                    class="piece special"
+                    style="animation-delay: 2.31s;"
+                >
+                    <span class="piece-number">22.</span>
+                    <span class="piece-title">Special 07</span>
+                </div>
+
+
+                <div
+                    class="piece"
+                    style="animation-delay: 2.37s;"
+                >
+                    <span class="piece-number">23.</span>
+                    <span class="piece-title">Believe</span>
+                </div>
+
+
+                <div
+                    class="piece special"
+                    style="animation-delay: 2.43s;"
+                >
+                    <span class="piece-number">24.</span>
+                    <span class="piece-title">Special 08</span>
+                </div>
+
+
+                <div
+                    class="piece"
+                    style="animation-delay: 2.49s;"
+                >
+                    <span class="piece-number">25.</span>
+                    <span class="piece-title">Untitled 04</span>
+                </div>
+
+
+                <div
+                    class="piece"
+                    style="animation-delay: 2.55s;"
+                >
+                    <span class="piece-number">26.</span>
+                    <span class="piece-title">Em</span>
+                </div>
+
+
+                <div
+                    class="piece"
+                    style="animation-delay: 2.61s;"
+                >
+                    <span class="piece-number">27.</span>
+                    <span class="piece-title">Remind</span>
+                </div>
+
+
+                <div
+                    class="piece"
+                    style="animation-delay: 2.67s;"
+                >
+                    <span class="piece-number">28.</span>
+                    <span class="piece-title">Anh</span>
+                </div>
+
+
+                <div
+                    class="piece"
+                    style="animation-delay: 2.73s;"
+                >
+                    <span class="piece-number">29.</span>
+                    <span class="piece-title">Unsaid</span>
+                </div>
+
+
+                <!-- LAST -->
+
+                <div
+                    class="piece last"
+                    style="animation-delay: 2.95s;"
+                >
+                    <span class="piece-number">Last</span>
+                    <span class="piece-title">
+                        there is one more thing
+                    </span>
+                </div>
+
+
+            </section>
+
+
+            <!-- =====================
+                 FOOTER
+            ====================== -->
+
+            <footer class="pieces-footer">
+
+                <p class="footer-main">
+                    30 pieces of me
+                </p>
+
+                <p class="footer-name">
+                    FOR HANH
+                </p>
+
+            </footer>
+
+
+        </div>
 
     </main>
 
 </body>
+
 </html>
