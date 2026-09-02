@@ -86,7 +86,7 @@ const records = {
 
     "f2Qm7KsV": {
         number: "15",
-        title: "việt nam",
+        title: "Việt Nam",
         audio: "https://eynwufiwqeujayumyxkz.supabase.co/storage/v1/object/public/Voicecards/15vietnam.m4a"
     },
 
