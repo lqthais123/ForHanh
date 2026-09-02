@@ -1,55 +1,507 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
 
     <title>For Hanh</title>
 
-    <link rel="stylesheet" href="style.css">
+    <style>
+        /* =========================
+           RESET
+        ========================= */
+
+        * {
+            box-sizing: border-box;
+        }
+
+        html,
+        body {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            min-height: 100%;
+        }
+
+        body {
+            background: #f4f0e8;
+        }
+
+
+        /* =========================
+           HOMEPAGE
+        ========================= */
+
+        .home {
+            position: relative;
+
+            width: 100%;
+            min-height: 100vh;
+            min-height: 100svh;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            overflow: hidden;
+
+            background: #f4f0e8;
+            color: #171614;
+        }
+
+
+        /* =========================
+           SUBTLE PAPER TEXTURE
+        ========================= */
+
+        .home::before {
+            content: "";
+
+            position: absolute;
+            inset: 0;
+
+            background-image:
+                radial-gradient(
+                    rgba(0, 0, 0, 0.035) 0.7px,
+                    transparent 0.7px
+                );
+
+            background-size: 5px 5px;
+
+            opacity: 0.35;
+
+            pointer-events: none;
+        }
+
+
+        /* =========================
+           MAIN CONTENT
+        ========================= */
+
+        .home-content {
+            position: relative;
+            z-index: 1;
+
+            width: min(88%, 520px);
+
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+
+            text-align: center;
+        }
+
+
+        /* =========================
+           INITIAL ANIMATION STATE
+        ========================= */
+
+        .home-content > * {
+            opacity: 0;
+
+            transform: translateY(7px);
+
+            animation-name: homeReveal;
+            animation-duration: 1s;
+            animation-timing-function:
+                cubic-bezier(0.22, 1, 0.36, 1);
+            animation-fill-mode: forwards;
+        }
+
+
+        /* =========================
+           ANIMATION TIMING
+        ========================= */
+
+        .eyebrow {
+            animation-delay: 0.35s;
+        }
+
+        .title {
+            animation-delay: 0.65s;
+        }
+
+        .signature {
+            animation-delay: 0.95s;
+        }
+
+        .divider {
+            animation-delay: 1.25s;
+        }
+
+        .tagline {
+            animation-delay: 1.55s;
+        }
+
+        .enter-link {
+            animation-delay: 2.35s;
+        }
+
+
+        /* =========================
+           EYEBROW
+        ========================= */
+
+        .eyebrow {
+            margin: 0 0 18px;
+
+            font-family:
+                Arial,
+                Helvetica,
+                sans-serif;
+
+            font-size: 10px;
+            font-weight: 400;
+
+            letter-spacing: 0.28em;
+
+            color: #8c877e;
+        }
+
+
+        /* =========================
+           TITLE
+        ========================= */
+
+        .title {
+            margin: 0;
+
+            font-family:
+                Georgia,
+                "Times New Roman",
+                serif;
+
+            font-size: clamp(42px, 11vw, 68px);
+
+            font-weight: 400;
+
+            line-height: 1.05;
+
+            letter-spacing: -0.025em;
+        }
+
+
+        /* =========================
+           SIGNATURE
+        ========================= */
+
+        .signature {
+            margin: 14px 0 0;
+
+            font-family:
+                Arial,
+                Helvetica,
+                sans-serif;
+
+            font-size: 11px;
+
+            font-weight: 300;
+
+            letter-spacing: 0.16em;
+
+            color: #77736c;
+        }
+
+
+        /* =========================
+           DIVIDER
+        ========================= */
+
+        .divider {
+            width: 34px;
+            height: 1px;
+
+            margin: 30px 0 25px;
+
+            background: #aaa49a;
+        }
+
+
+        /* =========================
+           TAGLINE
+        ========================= */
+
+        .tagline {
+            margin: 0;
+
+            font-family:
+                Georgia,
+                "Times New Roman",
+                serif;
+
+            font-size: 15px;
+
+            line-height: 1.8;
+
+            color: #35322e;
+        }
+
+        .tagline span {
+            font-family:
+                Arial,
+                Helvetica,
+                sans-serif;
+
+            font-size: 10px;
+
+            letter-spacing: 0.14em;
+
+            color: #8a857c;
+        }
+
+
+        /* =========================
+           ENTER LINK
+        ========================= */
+
+        .enter-link {
+            display: inline-flex;
+
+            align-items: center;
+
+            gap: 10px;
+
+            margin-top: 38px;
+
+            color: #24221f;
+
+            font-family:
+                Arial,
+                Helvetica,
+                sans-serif;
+
+            font-size: 10px;
+
+            font-weight: 400;
+
+            letter-spacing: 0.22em;
+
+            text-decoration: none;
+
+            cursor: pointer;
+        }
+
+
+        /* =========================
+           ENTER ARROW
+        ========================= */
+
+        .enter-link .arrow {
+            display: inline-block;
+
+            font-size: 14px;
+
+            line-height: 1;
+
+            transition:
+                transform 0.45s
+                cubic-bezier(0.22, 1, 0.36, 1);
+        }
+
+        .enter-link:hover .arrow {
+            transform: translateX(6px);
+        }
+
+
+        /* =========================
+           BOTTOM NOTE
+        ========================= */
+
+        .bottom-note {
+            position: absolute;
+
+            left: 50%;
+            bottom: 28px;
+
+            width: 100%;
+
+            margin: 0;
+
+            transform: translateX(-50%);
+
+            text-align: center;
+
+            font-family:
+                Arial,
+                Helvetica,
+                sans-serif;
+
+            font-size: 9px;
+
+            font-weight: 300;
+
+            letter-spacing: 0.16em;
+
+            color: #aaa49b;
+
+            opacity: 0;
+
+            animation:
+                bottomNoteReveal
+                1.2s
+                cubic-bezier(0.22, 1, 0.36, 1)
+                3.1s
+                forwards;
+        }
+
+
+        /* =========================
+           KEYFRAMES
+        ========================= */
+
+        @keyframes homeReveal {
+
+            from {
+                opacity: 0;
+                transform: translateY(7px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+
+        }
+
+
+        @keyframes bottomNoteReveal {
+
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
+
+        }
+
+
+        /* =========================
+           MOBILE
+        ========================= */
+
+        @media (max-width: 600px) {
+
+            .home-content {
+                width: 88%;
+            }
+
+            .eyebrow {
+                margin-bottom: 16px;
+            }
+
+            .signature {
+                margin-top: 12px;
+            }
+
+            .divider {
+                margin-top: 27px;
+                margin-bottom: 23px;
+            }
+
+            .tagline {
+                font-size: 14px;
+            }
+
+            .enter-link {
+                margin-top: 34px;
+            }
+
+            .bottom-note {
+                bottom: 24px;
+
+                font-size: 8px;
+
+                letter-spacing: 0.14em;
+            }
+
+        }
+
+
+        /* =========================
+           REDUCED MOTION
+        ========================= */
+
+        @media (prefers-reduced-motion: reduce) {
+
+            .home-content > *,
+            .bottom-note {
+                opacity: 1;
+
+                transform: none;
+
+                animation: none;
+            }
+
+            .enter-link .arrow {
+                transition: none;
+            }
+
+        }
+
+    </style>
 </head>
 
-<body class="home-page">
+
+<body>
 
     <main class="home">
 
-        <section class="home-content">
+        <div class="home-content">
 
-            <p class="home-eyebrow">
+            <p class="eyebrow">
                 FOR HANH
             </p>
 
-            <h1 class="home-title">
+
+            <h1 class="title">
                 For Hanh
             </h1>
 
-            <p class="home-signature">
+
+            <p class="signature">
                 From Thai Luong with love
             </p>
 
-            <div class="home-divider"></div>
 
-            <p class="home-tagline">
+            <div class="divider"></div>
+
+
+            <p class="tagline">
                 30 pieces of me.<br>
-                <span>for the days I'm not there.</span>
+
+                <span>
+                    for the days I'm not there.
+                </span>
             </p>
+
 
             <a
                 class="enter-link"
                 href="pieces.html"
-                aria-label="Enter"
             >
                 <span>ENTER</span>
-                <span class="enter-arrow">→</span>
+
+                <span class="arrow">
+                    →
+                </span>
             </a>
 
-        </section>
+        </div>
 
-        <p class="home-note">
+
+        <p class="bottom-note">
             some things are meant to be found.
         </p>
 
     </main>
 
 </body>
+
 </html>
