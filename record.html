@@ -630,16 +630,16 @@
             ====================== -->
 
             <p class="record-note">
-                when you're ready
+                a little piece of me
             </p>
 
 
         </div>
 
 
-        <!-- =====================
+        <!-- =========================
              BACK
-        ====================== -->
+        ========================= -->
 
         <a
             class="back-link"
@@ -656,35 +656,44 @@
          LAST DETECTION
     ========================= -->
 
-   <script>
+    <script>
 
-    const currentParams =
-        new URLSearchParams(
-            window.location.search
-        );
+        const currentParams =
+            new URLSearchParams(
+                window.location.search
+            );
 
-    const currentToken =
-        currentParams.get("t");
+        const currentToken =
+            currentParams.get("t");
 
-    if (
-        currentToken === "r3Mk8YpL"
-    ) {
+        if (
+            currentToken === "r3Mk8YpL"
+        ) {
 
-        document.body.classList.add(
-            "last-record"
-        );
+            document.body.classList.add(
+                "last-record"
+            );
 
-        const recordNote =
-            document.querySelector(".record-note");
 
-        if (recordNote) {
-            recordNote.textContent =
-                "when you're ready";
+            /* =========================
+               CHANGE NOTE ONLY FOR LAST
+            ========================= */
+
+            const recordNote =
+                document.querySelector(
+                    ".record-note"
+                );
+
+            if (recordNote) {
+
+                recordNote.textContent =
+                    "when you're ready";
+
+            }
+
         }
 
-    }
-
-</script>
+    </script>
 
 
     <!-- =========================
