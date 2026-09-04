@@ -1,5 +1,4 @@
 const records = {
-
     "a7Kp3XmQ": {
         number: "01",
         title: "beginning",
@@ -175,61 +174,66 @@ const records = {
     },
 
     "r3Mk8YpL": {
-        number: "LAST",
-        title: "last",
-        audio: "https://eynwufiwqeujayumyxkz.supabase.co/storage/v1/object/public/Voicecards/last.m4a"
+        number: "last",
+        title: "there is one more thing",
+        audio: "https://eynwufiwqeujayumyxkz.supabase.co/storage/v1/object/public/Voicecards/Last.m4a"
     }
-
 };
 
 
-/* =========================
-   GET TOKEN FROM URL
-========================= */
+// ================================
+// LOAD RECORD
+// ================================
 
 const params = new URLSearchParams(window.location.search);
-
 const token = params.get("t");
 
 const record = records[token];
 
-
-/* =========================
-   DISPLAY RECORD
-========================= */
-
 if (record) {
-
-    const numberElement =
-        document.getElementById("record-number");
-
-    const titleElement =
-        document.getElementById("record-title");
-
-    const audioPlayer =
-        document.getElementById("audio-player");
-
+    const numberElement = document.getElementById("record-number");
+    const titleElement = document.getElementById("record-title");
+    const audioPlayer = document.getElementById("audio-player");
 
     if (numberElement) {
         numberElement.textContent = record.number;
     }
 
-
     if (titleElement) {
         titleElement.textContent = record.title;
     }
 
-
     if (audioPlayer) {
-
         audioPlayer.src = record.audio;
-
-        audioPlayer.load();
-
     }
 
+    // Special note for Hug
+    if (record.number === "06") {
+        const noteElement = document.querySelector(".record-note");
 
-    document.title =
-        `${record.title} — For Hanh`;
+        if (noteElement) {
+            noteElement.textContent = "when you need a hug";
+        }
+    }
+} else {
+    // Invalid or missing token
+    const numberElement = document.getElementById("record-number");
+    const titleElement = document.getElementById("record-title");
 
+    if (numberElement) {
+        numberElement.textContent = "—";
+    }
+
+    if (titleElement) {
+        titleElement.textContent = "—";
+    }
+}
+
+
+// ================================
+// LAST RECORD
+// ================================
+
+if (token === "r3Mk8YpL") {
+    document.body.classList.add("last-record");
 }
