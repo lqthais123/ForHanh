@@ -104,7 +104,7 @@ const records = {
     "s4Lf9QyB": {
         number: "18",
         title: "1812",
-        audio: "https://eynwufiwqeujayumyxkz.supabase.co/storage/v1/object/public/Voicecards/18urspecialday.m4a"
+        audio: "https://eynwufiwqeujayumyxkz.supabase.co/storage/v1/object/public/Voicecards/1812.m4a"
     },
 
     "d8Kr2VxF": {
