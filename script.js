@@ -2,7 +2,7 @@ const records = {
     "a7Kp3XmQ": {
         number: "01",
         title: "beginning",
-        audio: "https://eynwufiwqeujayumyxkz.supabase.co/storage/v1/object/public/Voicecards/01beginning.m4a"
+        audio: "https://eynwufiwqeujayumyxkz.supabase.co/storage/v1/object/public/Voicecards/01begin.m4a"
     },
 
     "v4Nq8RtL": {
@@ -170,7 +170,7 @@ const records = {
     "q7Dc4JxV": {
         number: "29",
         title: "unsaid",
-        audio: "https://eynwufiwqeujayumyxkz.supabase.co/storage/v1/object/public/Voicecards/29unsaid.m4a"
+        audio: "https://eynwufiwqeujayumyxkz.supabase.co/storage/v1/object/public/Voicecards/Realunsaid.m4a"
     },
 
     "r3Mk8YpL": {
