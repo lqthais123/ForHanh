@@ -93,6 +93,44 @@
 
 
         /* =========================
+           BACK
+        ========================= */
+
+        .pieces-back {
+            display: inline-block;
+
+            margin-top: 0;
+            margin-bottom: 38px;
+
+            color: #8c877e;
+
+            font-family:
+                Arial,
+                Helvetica,
+                sans-serif;
+
+            font-size: 9px;
+
+            font-weight: 400;
+
+            letter-spacing: 0.2em;
+
+            text-decoration: none;
+
+            transition:
+                color 0.2s ease,
+                transform 0.2s ease;
+        }
+
+
+        .pieces-back:hover {
+            color: #302d29;
+
+            transform: translateX(-2px);
+        }
+
+
+        /* =========================
            HEADER
         ========================= */
 
@@ -428,6 +466,11 @@
             }
 
 
+            .pieces-back {
+                margin-bottom: 32px;
+            }
+
+
             .pieces-header {
                 margin-bottom: 42px;
             }
@@ -460,6 +503,18 @@
     <main class="pieces-page">
 
         <div class="pieces-content">
+
+
+            <!-- =====================
+                 BACK
+            ====================== -->
+
+            <a
+                href="index.html"
+                class="pieces-back"
+            >
+                ← BACK
+            </a>
 
 
             <!-- =====================
