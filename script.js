@@ -177,12 +177,45 @@ const records = {
         number: "last",
         title: "there is one more thing",
         audio: "https://eynwufiwqeujayumyxkz.supabase.co/storage/v1/object/public/Voicecards/Reallasttt.m4a"
+    },
+
+
+    // ================================
+    // HIDDEN EPILOGUE
+    // ================================
+
+    "v8Kp2DmL": {
+        number: "demo",
+        title: "last (demo)",
+        audio: "https://eynwufiwqeujayumyxkz.supabase.co/storage/v1/object/public/Voicecards/Last%20demo%202.m4a",
+        hidden: true
+    },
+
+    "c6Rn4TxQ": {
+        number: "—",
+        title: "continue",
+        audio: "https://eynwufiwqeujayumyxkz.supabase.co/storage/v1/object/public/Voicecards/After%20credit1.m4a",
+        hidden: true
+    },
+
+    "s9Jf3WpH": {
+        number: "—",
+        title: "stop",
+        audio: "https://eynwufiwqeujayumyxkz.supabase.co/storage/v1/object/public/Voicecards/After%20credit%202.m4a",
+        hidden: true
+    },
+
+    "e2Vz7YkM": {
+        number: "—",
+        title: "the end",
+        audio: "https://eynwufiwqeujayumyxkz.supabase.co/storage/v1/object/public/Voicecards/Outro.m4a",
+        hidden: true
     }
 };
 
 
 // ================================
-// LOAD RECORD
+// RECORD PAGE
 // ================================
 
 const params = new URLSearchParams(window.location.search);
@@ -191,38 +224,57 @@ const token = params.get("token");
 const record = records[token];
 
 if (record) {
-    const numberElement = document.getElementById("record-number");
-    const titleElement = document.getElementById("record-title");
-    const audioPlayer = document.getElementById("audio-player");
+
+    const numberElement =
+        document.getElementById("record-number");
+
+    const titleElement =
+        document.getElementById("record-title");
+
+    const audioPlayer =
+        document.getElementById("audio-player");
+
 
     if (numberElement) {
         numberElement.textContent = record.number;
     }
 
+
     if (titleElement) {
         titleElement.textContent = record.title;
     }
+
 
     if (audioPlayer) {
         audioPlayer.src = record.audio;
     }
 
+
     // Special note for Hug
     if (record.number === "06") {
-        const noteElement = document.querySelector(".record-note");
+
+        const noteElement =
+            document.querySelector(".record-note");
 
         if (noteElement) {
-            noteElement.textContent = "when you need a hug";
+            noteElement.textContent =
+                "when you need a hug";
         }
     }
+
 } else {
-    // Invalid or missing token
-    const numberElement = document.getElementById("record-number");
-    const titleElement = document.getElementById("record-title");
+
+    const numberElement =
+        document.getElementById("record-number");
+
+    const titleElement =
+        document.getElementById("record-title");
+
 
     if (numberElement) {
         numberElement.textContent = "—";
     }
+
 
     if (titleElement) {
         titleElement.textContent = "—";
@@ -231,9 +283,89 @@ if (record) {
 
 
 // ================================
-// LAST RECORD
+// LAST / EPILOGUE STYLE
 // ================================
 
-if (token === "r3Mk8YpL") {
+const epilogueTokens = [
+    "r3Mk8YpL",
+    "v8Kp2DmL",
+    "c6Rn4TxQ",
+    "s9Jf3WpH",
+    "e2Vz7YkM"
+];
+
+if (epilogueTokens.includes(token)) {
     document.body.classList.add("last-record");
+}
+
+
+// ================================
+// PIECES PAGE PLAYER
+// ================================
+
+const piecesPlayer =
+    document.getElementById("pieces-audio-player");
+
+const piecesNowPlaying =
+    document.getElementById("pieces-now-playing");
+
+const pieceButtons =
+    document.querySelectorAll(".piece-play");
+
+
+if (piecesPlayer && pieceButtons.length > 0) {
+
+    pieceButtons.forEach(button => {
+
+        button.addEventListener("click", () => {
+
+            const pieceToken =
+                button.dataset.token;
+
+            const pieceRecord =
+                records[pieceToken];
+
+            if (!pieceRecord) {
+                return;
+            }
+
+
+            piecesPlayer.src =
+                pieceRecord.audio;
+
+            piecesPlayer.load();
+
+            piecesPlayer.play().catch(() => {});
+
+
+            if (piecesNowPlaying) {
+
+                piecesNowPlaying.textContent =
+                    pieceRecord.number === "last"
+                        ? "last — " + pieceRecord.title
+                        : pieceRecord.number +
+                          " — " +
+                          pieceRecord.title;
+            }
+
+
+            pieceButtons.forEach(item => {
+                item.classList.remove("playing");
+            });
+
+            button.classList.add("playing");
+
+        });
+
+    });
+
+
+    piecesPlayer.addEventListener("ended", () => {
+
+        pieceButtons.forEach(button => {
+            button.classList.remove("playing");
+        });
+
+    });
+
 }
