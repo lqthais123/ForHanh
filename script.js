@@ -219,7 +219,7 @@ const records = {
 // ================================
 
 const params = new URLSearchParams(window.location.search);
-const token = params.get("token");
+const token = params.get("id");
 
 const record = records[token];
 
