@@ -1,851 +1,847 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <meta
-        name="viewport"
-        content="width=device-width, initial-scale=1.0"
-    >
-
-    <title>30 pieces of me — For Hanh</title>
+    <title>For My Hanh — Pieces</title>
 
     <style>
-
-        /* =========================
-           RESET
-        ========================= */
-
         * {
             box-sizing: border-box;
         }
 
-        html,
+        html {
+            scroll-behavior: smooth;
+        }
+
         body {
             margin: 0;
-            padding: 0;
-            width: 100%;
-            min-height: 100%;
+            background: #f7f5f1;
+            color: #302d29;
+            font-family: Arial, Helvetica, sans-serif;
+            font-weight: 400;
         }
-
-        body {
-            background: #f4f0e8;
-        }
-
-
-        /* =========================
-           PAGE
-        ========================= */
 
         .pieces-page {
-            position: relative;
-
-            width: 100%;
             min-height: 100vh;
-            min-height: 100svh;
-
-            padding: 70px 24px 55px;
-
-            overflow: hidden;
-
-            background: #f4f0e8;
-            color: #171614;
+            padding: 70px 24px 100px;
         }
-
-
-        /* =========================
-           PAPER TEXTURE
-        ========================= */
-
-        .pieces-page::before {
-            content: "";
-
-            position: fixed;
-            inset: 0;
-
-            background-image:
-                radial-gradient(
-                    rgba(0, 0, 0, 0.035) 0.7px,
-                    transparent 0.7px
-                );
-
-            background-size: 5px 5px;
-
-            opacity: 0.35;
-
-            pointer-events: none;
-        }
-
-
-        /* =========================
-           CONTENT
-        ========================= */
 
         .pieces-content {
-            position: relative;
-            z-index: 1;
-
-            width: min(100%, 520px);
-
+            width: 100%;
+            max-width: 720px;
             margin: 0 auto;
         }
 
-
-        /* =========================
-           BACK
-        ========================= */
+        /* BACK */
 
         .pieces-back {
             display: inline-block;
-
-            margin-top: 0;
-            margin-bottom: 38px;
-
+            margin-bottom: 52px;
             color: #8c877e;
-
-            font-family:
-                Arial,
-                Helvetica,
-                sans-serif;
-
+            font-family: Arial, Helvetica, sans-serif;
             font-size: 9px;
-
             font-weight: 400;
-
             letter-spacing: 0.2em;
-
             text-decoration: none;
-
             transition:
                 color 0.2s ease,
                 transform 0.2s ease;
         }
 
-
         .pieces-back:hover {
             color: #302d29;
-
             transform: translateX(-2px);
         }
 
-
-        /* =========================
-           HEADER
-        ========================= */
+        /* HEADER */
 
         .pieces-header {
-            text-align: center;
-
-            margin-bottom: 55px;
+            margin-bottom: 60px;
         }
 
-
-        .header-label {
-            margin: 0 0 15px;
-
-            font-family:
-                Arial,
-                Helvetica,
-                sans-serif;
-
+        .pieces-small-title {
+            margin: 0 0 12px;
+            color: #aaa49b;
             font-size: 9px;
-
-            font-weight: 400;
-
-            letter-spacing: 0.28em;
-
-            color: #8c877e;
-
-            opacity: 0;
-
-            transform: translateY(6px);
-
-            animation:
-                reveal
-                1s
-                cubic-bezier(0.22, 1, 0.36, 1)
-                0.25s
-                forwards;
+            letter-spacing: 0.25em;
+            text-transform: uppercase;
         }
 
-
-        .header-title {
+        .pieces-title {
             margin: 0;
-
-            font-family:
-                Georgia,
-                "Times New Roman",
-                serif;
-
-            font-size: clamp(34px, 9vw, 50px);
-
+            font-family: Georgia, "Times New Roman", serif;
+            font-size: 32px;
             font-weight: 400;
-
-            line-height: 1.1;
-
-            letter-spacing: -0.025em;
-
-            opacity: 0;
-
-            transform: translateY(7px);
-
-            animation:
-                reveal
-                1s
-                cubic-bezier(0.22, 1, 0.36, 1)
-                0.5s
-                forwards;
+            letter-spacing: 0.02em;
         }
 
-
-        .header-signature {
-            margin: 13px 0 0;
-
-            font-family:
-                Arial,
-                Helvetica,
-                sans-serif;
-
-            font-size: 10px;
-
-            font-weight: 300;
-
-            letter-spacing: 0.15em;
-
-            color: #77736c;
-
-            opacity: 0;
-
-            transform: translateY(6px);
-
-            animation:
-                reveal
-                1s
-                cubic-bezier(0.22, 1, 0.36, 1)
-                0.8s
-                forwards;
+        .pieces-subtitle {
+            margin: 15px 0 0;
+            color: #8c877e;
+            font-size: 11px;
+            line-height: 1.8;
         }
 
-
-        /* =========================
-           LIST
-        ========================= */
+        /* LIST */
 
         .pieces-list {
-            width: 100%;
+            border-top: 1px solid #ddd8d0;
         }
 
-
-        .piece {
+        .piece-row {
             display: grid;
-
-            grid-template-columns: 42px 1fr;
-
-            align-items: baseline;
-
-            width: 100%;
-
-            padding: 13px 0;
-
-            border-bottom:
-                1px solid
-                rgba(60, 56, 50, 0.10);
-
-            opacity: 0;
-
-            transform: translateY(5px);
-
-            animation:
-                pieceReveal
-                0.75s
-                cubic-bezier(0.22, 1, 0.36, 1)
-                forwards;
+            grid-template-columns: 55px minmax(0, 1fr) 55px;
+            align-items: center;
+            min-height: 64px;
+            border-bottom: 1px solid #ddd8d0;
         }
-
-
-        /* =========================
-           NUMBER
-        ========================= */
 
         .piece-number {
-            font-family:
-                Arial,
-                Helvetica,
-                sans-serif;
-
-            font-size: 9px;
-
-            font-weight: 400;
-
-            letter-spacing: 0.08em;
-
             color: #aaa49b;
+            font-size: 9px;
+            letter-spacing: 0.12em;
         }
-
-
-        /* =========================
-           TITLE
-        ========================= */
 
         .piece-title {
-            font-family:
-                Georgia,
-                "Times New Roman",
-                serif;
+            color: #302d29;
+            font-family: Georgia, "Times New Roman", serif;
+            font-size: 15px;
+            letter-spacing: 0.01em;
+        }
 
-            font-size: 16px;
+        .piece-play {
+            justify-self: end;
+            padding: 7px 0;
+            border: 0;
+            background: transparent;
+            color: #aaa49b;
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 8px;
+            letter-spacing: 0.18em;
+            cursor: pointer;
+            transition:
+                color 0.2s ease,
+                transform 0.2s ease;
+        }
 
+        .piece-play:hover {
+            color: #302d29;
+            transform: translateX(2px);
+        }
+
+        .piece-play.playing {
+            color: #302d29;
+        }
+
+        /* LAST */
+
+        .piece-row.last-piece {
+            margin-top: 24px;
+            border-top: 1px solid #302d29;
+        }
+
+        .piece-row.last-piece .piece-number {
+            color: #302d29;
+        }
+
+        .piece-row.last-piece .piece-title {
+            font-style: italic;
+        }
+
+        /* PLAYER */
+
+        .pieces-player {
+            margin-top: 60px;
+            padding-top: 28px;
+            border-top: 1px solid #ddd8d0;
+        }
+
+        .player-label {
+            margin: 0 0 8px;
+            color: #aaa49b;
+            font-size: 8px;
+            letter-spacing: 0.22em;
+        }
+
+        .player-title {
+            margin: 0 0 18px;
+            color: #302d29;
+            font-family: Georgia, "Times New Roman", serif;
+            font-size: 15px;
+        }
+
+        .pieces-player audio {
+            width: 100%;
+            height: 36px;
+        }
+
+        /* SECRET */
+
+        .after-link-wrap {
+            margin-top: 85px;
+            text-align: center;
+        }
+
+        .after-link {
+            display: inline-block;
+            color: #b5b0a8;
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 9px;
             font-weight: 400;
+            letter-spacing: 0.18em;
+            text-decoration: none;
+            opacity: 0.55;
+            transition:
+                opacity 0.25s ease,
+                color 0.25s ease;
+        }
 
-            line-height: 1.4;
-
+        .after-link:hover {
             color: #302d29;
+            opacity: 1;
         }
 
-
-        /* =========================
-           LAST
-        ========================= */
-
-        .piece.last {
-            margin-top: 8px;
-
-            padding-top: 13px;
-
-            border-bottom: none;
-        }
-
-
-        .piece.last .piece-number {
-            color: #9f988d;
-        }
-
-
-        .piece.last .piece-title {
-            color: #302d29;
-        }
-
-
-        /* =========================
-           FOOTER
-        ========================= */
+        /* FOOTER */
 
         .pieces-footer {
-            margin-top: 58px;
-
+            margin-top: 90px;
             text-align: center;
-
-            opacity: 0;
-
-            animation:
-                footerReveal
-                1.2s
-                cubic-bezier(0.22, 1, 0.36, 1)
-                3.4s
-                forwards;
         }
 
-
-        .footer-main {
+        .pieces-footer p {
             margin: 0;
-
-            font-family:
-                Georgia,
-                "Times New Roman",
-                serif;
-
-            font-size: 14px;
-
-            font-weight: 400;
-
-            letter-spacing: 0.02em;
-
-            color: #625d55;
+            color: #b5b0a8;
+            font-size: 8px;
+            letter-spacing: 0.16em;
         }
 
-
-        .footer-name {
-            margin: 12px 0 0;
-
-            font-family:
-                Arial,
-                Helvetica,
-                sans-serif;
-
-            font-size: 9px;
-
-            font-weight: 300;
-
-            letter-spacing: 0.22em;
-
-            color: #aaa49b;
-        }
-
-
-        /* =========================
-           ANIMATION
-        ========================= */
-
-        @keyframes reveal {
-
-            from {
-                opacity: 0;
-                transform: translateY(7px);
-            }
-
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-
-        }
-
-
-        @keyframes pieceReveal {
-
-            from {
-                opacity: 0;
-                transform: translateY(5px);
-            }
-
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-
-        }
-
-
-        @keyframes footerReveal {
-
-            from {
-                opacity: 0;
-            }
-
-            to {
-                opacity: 1;
-            }
-
-        }
-
-
-        /* =========================
-           REDUCED MOTION
-        ========================= */
-
-        @media (prefers-reduced-motion: reduce) {
-
-            .header-label,
-            .header-title,
-            .header-signature,
-            .piece,
-            .pieces-footer {
-
-                opacity: 1;
-
-                transform: none;
-
-                animation: none;
-            }
-
-        }
-
-
-        /* =========================
-           MOBILE
-        ========================= */
+        /* MOBILE */
 
         @media (max-width: 600px) {
 
             .pieces-page {
-                padding:
-                    58px
-                    22px
-                    45px;
+                padding: 45px 20px 75px;
             }
 
+            .pieces-content {
+                max-width: 100%;
+            }
 
             .pieces-back {
-                margin-bottom: 32px;
+                margin-bottom: 38px;
             }
-
 
             .pieces-header {
-                margin-bottom: 42px;
+                margin-bottom: 45px;
             }
 
-
-            .piece {
-                grid-template-columns: 38px 1fr;
-
-                padding: 12px 0;
+            .pieces-title {
+                font-size: 27px;
             }
 
+            .pieces-subtitle {
+                max-width: 310px;
+                font-size: 10px;
+            }
+
+            .piece-row {
+                grid-template-columns: 45px minmax(0, 1fr) 48px;
+                min-height: 60px;
+            }
 
             .piece-title {
-                font-size: 15px;
+                font-size: 14px;
             }
 
+            .piece-play {
+                font-size: 7px;
+            }
+
+            .pieces-player {
+                margin-top: 50px;
+            }
+
+            .after-link-wrap {
+                margin-top: 70px;
+            }
 
             .pieces-footer {
-                margin-top: 48px;
+                margin-top: 75px;
             }
-
         }
-
     </style>
 </head>
 
-
 <body>
 
-    <main class="pieces-page">
+<div class="pieces-page">
 
-        <div class="pieces-content">
+    <main class="pieces-content">
+
+        <!-- BACK -->
+        <a href="index.html" class="pieces-back">← BACK</a>
+
+        <!-- HEADER -->
+        <header class="pieces-header">
+            <p class="pieces-small-title">For My Hanh</p>
+
+            <h1 class="pieces-title">
+                30 pieces of me
+            </h1>
+
+            <p class="pieces-subtitle">
+                A little collection of things I wanted you to have.
+            </p>
+        </header>
 
 
-            <!-- =====================
-                 BACK
-            ====================== -->
+        <!-- 30 PIECES -->
+        <section class="pieces-list">
+
+            <div class="piece-row">
+                <span class="piece-number">01</span>
+                <span class="piece-title">beginning</span>
+                <button class="piece-play" data-token="a7Kp3XmQ" type="button">
+                    PLAY
+                </button>
+            </div>
+
+            <div class="piece-row">
+                <span class="piece-number">02</span>
+                <span class="piece-title">untitled 01</span>
+                <button class="piece-play" data-token="v4Nq8RtL" type="button">
+                    PLAY
+                </button>
+            </div>
+
+            <div class="piece-row">
+                <span class="piece-number">03</span>
+                <span class="piece-title">sleepless</span>
+                <button class="piece-play" data-token="m9Cw2YhF" type="button">
+                    PLAY
+                </button>
+            </div>
+
+            <div class="piece-row">
+                <span class="piece-number">04</span>
+                <span class="piece-title">untitled 02</span>
+                <button class="piece-play" data-token="p6Jt5KsR" type="button">
+                    PLAY
+                </button>
+            </div>
+
+            <div class="piece-row">
+                <span class="piece-number">05</span>
+                <span class="piece-title">love</span>
+                <button class="piece-play" data-token="x3Bv7LnQ" type="button">
+                    PLAY
+                </button>
+            </div>
+
+            <div class="piece-row">
+                <span class="piece-number">06</span>
+                <span class="piece-title">hug</span>
+                <button class="piece-play" data-token="h8Dk4WpM" type="button">
+                    PLAY
+                </button>
+            </div>
+
+            <div class="piece-row">
+                <span class="piece-number">07</span>
+                <span class="piece-title">question</span>
+                <button class="piece-play" data-token="q2Fz9AcT" type="button">
+                    PLAY
+                </button>
+            </div>
+
+            <div class="piece-row">
+                <span class="piece-number">08</span>
+                <span class="piece-title">grateful</span>
+                <button class="piece-play" data-token="r5Yj8VuK" type="button">
+                    PLAY
+                </button>
+            </div>
+
+            <div class="piece-row">
+                <span class="piece-number">09</span>
+                <span class="piece-title">lonely</span>
+                <button class="piece-play" data-token="n7Lm3XeP" type="button">
+                    PLAY
+                </button>
+            </div>
+
+            <div class="piece-row">
+                <span class="piece-number">10</span>
+                <span class="piece-title">sharing</span>
+                <button class="piece-play" data-token="c4Qt6HsW" type="button">
+                    PLAY
+                </button>
+            </div>
+
+            <div class="piece-row">
+                <span class="piece-number">11</span>
+                <span class="piece-title">grace</span>
+                <button class="piece-play" data-token="z8Mp2FbR" type="button">
+                    PLAY
+                </button>
+            </div>
+
+            <div class="piece-row">
+                <span class="piece-number">12</span>
+                <span class="piece-title">bad day</span>
+                <button class="piece-play" data-token="k3Vn9JdA" type="button">
+                    PLAY
+                </button>
+            </div>
+
+            <div class="piece-row">
+                <span class="piece-number">13</span>
+                <span class="piece-title">guess</span>
+                <button class="piece-play" data-token="t6Rw4XqH" type="button">
+                    PLAY
+                </button>
+            </div>
+
+            <div class="piece-row">
+                <span class="piece-number">14</span>
+                <span class="piece-title">affection</span>
+                <button class="piece-play" data-token="b9Yp5LcN" type="button">
+                    PLAY
+                </button>
+            </div>
+
+            <div class="piece-row">
+                <span class="piece-number">15</span>
+                <span class="piece-title">Việt Nam</span>
+                <button class="piece-play" data-token="f2Qm7KsV" type="button">
+                    PLAY
+                </button>
+            </div>
+
+            <div class="piece-row">
+                <span class="piece-number">16</span>
+                <span class="piece-title">miss</span>
+                <button class="piece-play" data-token="w5Hd8ZrC" type="button">
+                    PLAY
+                </button>
+            </div>
+
+            <div class="piece-row">
+                <span class="piece-number">17</span>
+                <span class="piece-title">hope</span>
+                <button class="piece-play" data-token="j7Xc3PnM" type="button">
+                    PLAY
+                </button>
+            </div>
+
+            <div class="piece-row">
+                <span class="piece-number">18</span>
+                <span class="piece-title">1812</span>
+                <button class="piece-play" data-token="s4Lf9QyB" type="button">
+                    PLAY
+                </button>
+            </div>
+
+            <div class="piece-row">
+                <span class="piece-number">19</span>
+                <span class="piece-title">untitled 03</span>
+                <button class="piece-play" data-token="d8Kr2VxF" type="button">
+                    PLAY
+                </button>
+            </div>
+
+            <div class="piece-row">
+                <span class="piece-number">20</span>
+                <span class="piece-title">proud</span>
+                <button class="piece-play" data-token="g6Np5TwL" type="button">
+                    PLAY
+                </button>
+            </div>
+
+            <div class="piece-row">
+                <span class="piece-number">21</span>
+                <span class="piece-title">happy</span>
+                <button class="piece-play" data-token="u3Zm8HqR" type="button">
+                    PLAY
+                </button>
+            </div>
+
+            <div class="piece-row">
+                <span class="piece-number">22</span>
+                <span class="piece-title">faithful</span>
+                <button class="piece-play" data-token="e9Vc4KpW" type="button">
+                    PLAY
+                </button>
+            </div>
+
+            <div class="piece-row">
+                <span class="piece-number">23</span>
+                <span class="piece-title">believe</span>
+                <button class="piece-play" data-token="y5Ft7LnD" type="button">
+                    PLAY
+                </button>
+            </div>
+
+            <div class="piece-row">
+                <span class="piece-number">24</span>
+                <span class="piece-title">best wishes</span>
+                <button class="piece-play" data-token="o2Jr6XsM" type="button">
+                    PLAY
+                </button>
+            </div>
+
+            <div class="piece-row">
+                <span class="piece-number">25</span>
+                <span class="piece-title">untitled 04</span>
+                <button class="piece-play" data-token="i8Qw3ZkP" type="button">
+                    PLAY
+                </button>
+            </div>
+
+            <div class="piece-row">
+                <span class="piece-number">26</span>
+                <span class="piece-title">em</span>
+                <button class="piece-play" data-token="l4Yv9CnH" type="button">
+                    PLAY
+                </button>
+            </div>
+
+            <div class="piece-row">
+                <span class="piece-number">27</span>
+                <span class="piece-title">remind</span>
+                <button class="piece-play" data-token="n6Bx2RfT" type="button">
+                    PLAY
+                </button>
+            </div>
+
+            <div class="piece-row">
+                <span class="piece-number">28</span>
+                <span class="piece-title">anh</span>
+                <button class="piece-play" data-token="p9Hs5WmK" type="button">
+                    PLAY
+                </button>
+            </div>
+
+            <div class="piece-row">
+                <span class="piece-number">29</span>
+                <span class="piece-title">unsaid</span>
+                <button class="piece-play" data-token="q7Dc4JxV" type="button">
+                    PLAY
+                </button>
+            </div>
+
+            <div class="piece-row last-piece">
+                <span class="piece-number">LAST</span>
+                <span class="piece-title">there is one more thing</span>
+                <button class="piece-play" data-token="r3Mk8YpL" type="button">
+                    PLAY
+                </button>
+            </div>
+
+        </section>
+
+
+        <!-- AUDIO PLAYER -->
+        <section class="pieces-player">
+
+            <p class="player-label">NOW PLAYING</p>
+
+            <p id="pieces-now-playing" class="player-title">
+                choose a piece
+            </p>
+
+            <audio
+                id="pieces-audio-player"
+                controls
+                preload="none">
+                Your browser does not support the audio element.
+            </audio>
+
+        </section>
+
+
+        <!-- SECRET AFTER-CREDIT ENTRY -->
+        <div class="after-link-wrap">
 
             <a
-                href="index.html"
-                class="pieces-back"
-            >
-                ← BACK
+                href="record.html?id=v8Kp2DmL"
+                class="after-link">
+                there might be more
             </a>
-
-
-            <!-- =====================
-                 HEADER
-            ====================== -->
-
-            <header class="pieces-header">
-
-                <p class="header-label">
-                    FOR HANH
-                </p>
-
-                <h1 class="header-title">
-                    For Hanh
-                </h1>
-
-                <p class="header-signature">
-                    From Thai Luong with love
-                </p>
-
-            </header>
-
-
-            <!-- =====================
-                 PIECES
-            ====================== -->
-
-            <section class="pieces-list">
-
-
-                <div
-                    class="piece"
-                    style="animation-delay: 1.05s;"
-                >
-                    <span class="piece-number">01.</span>
-                    <span class="piece-title">beginning</span>
-                </div>
-
-
-                <div
-                    class="piece"
-                    style="animation-delay: 1.11s;"
-                >
-                    <span class="piece-number">02.</span>
-                    <span class="piece-title">untitled 01</span>
-                </div>
-
-
-                <div
-                    class="piece"
-                    style="animation-delay: 1.17s;"
-                >
-                    <span class="piece-number">03.</span>
-                    <span class="piece-title">sleepless</span>
-                </div>
-
-
-                <div
-                    class="piece"
-                    style="animation-delay: 1.23s;"
-                >
-                    <span class="piece-number">04.</span>
-                    <span class="piece-title">untitled 02</span>
-                </div>
-
-
-                <div
-                    class="piece"
-                    style="animation-delay: 1.29s;"
-                >
-                    <span class="piece-number">05.</span>
-                    <span class="piece-title">love</span>
-                </div>
-
-
-                <div
-                    class="piece"
-                    style="animation-delay: 1.35s;"
-                >
-                    <span class="piece-number">06.</span>
-                    <span class="piece-title">hug</span>
-                </div>
-
-
-                <div
-                    class="piece"
-                    style="animation-delay: 1.41s;"
-                >
-                    <span class="piece-number">07.</span>
-                    <span class="piece-title">question</span>
-                </div>
-
-
-                <div
-                    class="piece"
-                    style="animation-delay: 1.47s;"
-                >
-                    <span class="piece-number">08.</span>
-                    <span class="piece-title">grateful</span>
-                </div>
-
-
-                <div
-                    class="piece"
-                    style="animation-delay: 1.53s;"
-                >
-                    <span class="piece-number">09.</span>
-                    <span class="piece-title">lonely</span>
-                </div>
-
-
-                <div
-                    class="piece"
-                    style="animation-delay: 1.59s;"
-                >
-                    <span class="piece-number">10.</span>
-                    <span class="piece-title">sharing</span>
-                </div>
-
-
-                <div
-                    class="piece"
-                    style="animation-delay: 1.65s;"
-                >
-                    <span class="piece-number">11.</span>
-                    <span class="piece-title">grace</span>
-                </div>
-
-
-                <div
-                    class="piece"
-                    style="animation-delay: 1.71s;"
-                >
-                    <span class="piece-number">12.</span>
-                    <span class="piece-title">bad day</span>
-                </div>
-
-
-                <div
-                    class="piece"
-                    style="animation-delay: 1.77s;"
-                >
-                    <span class="piece-number">13.</span>
-                    <span class="piece-title">guess</span>
-                </div>
-
-
-                <div
-                    class="piece"
-                    style="animation-delay: 1.83s;"
-                >
-                    <span class="piece-number">14.</span>
-                    <span class="piece-title">affection</span>
-                </div>
-
-
-                <div
-                    class="piece"
-                    style="animation-delay: 1.89s;"
-                >
-                    <span class="piece-number">15.</span>
-                    <span class="piece-title">Việt Nam</span>
-                </div>
-
-
-                <div
-                    class="piece"
-                    style="animation-delay: 1.95s;"
-                >
-                    <span class="piece-number">16.</span>
-                    <span class="piece-title">miss</span>
-                </div>
-
-
-                <div
-                    class="piece"
-                    style="animation-delay: 2.01s;"
-                >
-                    <span class="piece-number">17.</span>
-                    <span class="piece-title">hope</span>
-                </div>
-
-
-                <div
-                    class="piece"
-                    style="animation-delay: 2.07s;"
-                >
-                    <span class="piece-number">18.</span>
-                    <span class="piece-title">1812</span>
-                </div>
-
-
-                <div
-                    class="piece"
-                    style="animation-delay: 2.13s;"
-                >
-                    <span class="piece-number">19.</span>
-                    <span class="piece-title">untitled 03</span>
-                </div>
-
-
-                <div
-                    class="piece"
-                    style="animation-delay: 2.19s;"
-                >
-                    <span class="piece-number">20.</span>
-                    <span class="piece-title">proud</span>
-                </div>
-
-
-                <div
-                    class="piece"
-                    style="animation-delay: 2.25s;"
-                >
-                    <span class="piece-number">21.</span>
-                    <span class="piece-title">happy</span>
-                </div>
-
-
-                <div
-                    class="piece"
-                    style="animation-delay: 2.31s;"
-                >
-                    <span class="piece-number">22.</span>
-                    <span class="piece-title">faithful</span>
-                </div>
-
-
-                <div
-                    class="piece"
-                    style="animation-delay: 2.37s;"
-                >
-                    <span class="piece-number">23.</span>
-                    <span class="piece-title">believe</span>
-                </div>
-
-
-                <div
-                    class="piece"
-                    style="animation-delay: 2.43s;"
-                >
-                    <span class="piece-number">24.</span>
-                    <span class="piece-title">best wishes</span>
-                </div>
-
-
-                <div
-                    class="piece"
-                    style="animation-delay: 2.49s;"
-                >
-                    <span class="piece-number">25.</span>
-                    <span class="piece-title">untitled 04</span>
-                </div>
-
-
-                <div
-                    class="piece"
-                    style="animation-delay: 2.55s;"
-                >
-                    <span class="piece-number">26.</span>
-                    <span class="piece-title">em</span>
-                </div>
-
-
-                <div
-                    class="piece"
-                    style="animation-delay: 2.61s;"
-                >
-                    <span class="piece-number">27.</span>
-                    <span class="piece-title">remind</span>
-                </div>
-
-
-                <div
-                    class="piece"
-                    style="animation-delay: 2.67s;"
-                >
-                    <span class="piece-number">28.</span>
-                    <span class="piece-title">anh</span>
-                </div>
-
-
-                <div
-                    class="piece"
-                    style="animation-delay: 2.73s;"
-                >
-                    <span class="piece-number">29.</span>
-                    <span class="piece-title">unsaid</span>
-                </div>
-
-
-                <!-- =====================
-                     LAST
-                ====================== -->
-
-                <div
-                    class="piece last"
-                    style="animation-delay: 2.95s;"
-                >
-                    <span class="piece-number">Last</span>
-
-                    <span class="piece-title">
-                        there is one more thing
-                    </span>
-                </div>
-
-
-            </section>
-
-
-            <!-- =====================
-                 FOOTER
-            ====================== -->
-
-            <footer class="pieces-footer">
-
-                <p class="footer-main">
-                    30 pieces of me
-                </p>
-
-                <p class="footer-name">
-                    FOR HANH
-                </p>
-
-            </footer>
-
 
         </div>
 
+
+        <!-- FOOTER -->
+        <footer class="pieces-footer">
+            <p>From Thai Luong with love</p>
+        </footer>
+
     </main>
 
-</body>
+</div>
 
+
+<script>
+    const records = {
+
+        "a7Kp3XmQ": {
+            number: "01",
+            title: "beginning",
+            audio: "https://eynwufiwqeujayumyxkz.supabase.co/storage/v1/object/public/Voicecards/01begin.m4a"
+        },
+
+        "v4Nq8RtL": {
+            number: "02",
+            title: "untitled 01",
+            audio: "https://eynwufiwqeujayumyxkz.supabase.co/storage/v1/object/public/Voicecards/02untitled01.m4a"
+        },
+
+        "m9Cw2YhF": {
+            number: "03",
+            title: "sleepless",
+            audio: "https://eynwufiwqeujayumyxkz.supabase.co/storage/v1/object/public/Voicecards/03sleepless.m4a"
+        },
+
+        "p6Jt5KsR": {
+            number: "04",
+            title: "untitled 02",
+            audio: "https://eynwufiwqeujayumyxkz.supabase.co/storage/v1/object/public/Voicecards/04untitled02.m4a"
+        },
+
+        "x3Bv7LnQ": {
+            number: "05",
+            title: "love",
+            audio: "https://eynwufiwqeujayumyxkz.supabase.co/storage/v1/object/public/Voicecards/05special1.m4a"
+        },
+
+        "h8Dk4WpM": {
+            number: "06",
+            title: "hug",
+            audio: "https://eynwufiwqeujayumyxkz.supabase.co/storage/v1/object/public/Voicecards/06hug.m4a"
+        },
+
+        "q2Fz9AcT": {
+            number: "07",
+            title: "question",
+            audio: "https://eynwufiwqeujayumyxkz.supabase.co/storage/v1/object/public/Voicecards/07question.m4a"
+        },
+
+        "r5Yj8VuK": {
+            number: "08",
+            title: "grateful",
+            audio: "https://eynwufiwqeujayumyxkz.supabase.co/storage/v1/object/public/Voicecards/08special2.aac"
+        },
+
+        "n7Lm3XeP": {
+            number: "09",
+            title: "lonely",
+            audio: "https://eynwufiwqeujayumyxkz.supabase.co/storage/v1/object/public/Voicecards/09lonely.m4a"
+        },
+
+        "c4Qt6HsW": {
+            number: "10",
+            title: "sharing",
+            audio: "https://eynwufiwqeujayumyxkz.supabase.co/storage/v1/object/public/Voicecards/10sharing.m4a"
+        },
+
+        "z8Mp2FbR": {
+            number: "11",
+            title: "grace",
+            audio: "https://eynwufiwqeujayumyxkz.supabase.co/storage/v1/object/public/Voicecards/11special3.m4a"
+        },
+
+        "k3Vn9JdA": {
+            number: "12",
+            title: "bad day",
+            audio: "https://eynwufiwqeujayumyxkz.supabase.co/storage/v1/object/public/Voicecards/12badday.m4a"
+        },
+
+        "t6Rw4XqH": {
+            number: "13",
+            title: "guess",
+            audio: "https://eynwufiwqeujayumyxkz.supabase.co/storage/v1/object/public/Voicecards/13guess.m4a"
+        },
+
+        "b9Yp5LcN": {
+            number: "14",
+            title: "affection",
+            audio: "https://eynwufiwqeujayumyxkz.supabase.co/storage/v1/object/public/Voicecards/14special4.m4a"
+        },
+
+        "f2Qm7KsV": {
+            number: "15",
+            title: "Việt Nam",
+            audio: "https://eynwufiwqeujayumyxkz.supabase.co/storage/v1/object/public/Voicecards/15vietnam.m4a"
+        },
+
+        "w5Hd8ZrC": {
+            number: "16",
+            title: "miss",
+            audio: "https://eynwufiwqeujayumyxkz.supabase.co/storage/v1/object/public/Voicecards/16miss.m4a"
+        },
+
+        "j7Xc3PnM": {
+            number: "17",
+            title: "hope",
+            audio: "https://eynwufiwqeujayumyxkz.supabase.co/storage/v1/object/public/Voicecards/17special5.aac"
+        },
+
+        "s4Lf9QyB": {
+            number: "18",
+            title: "1812",
+            audio: "https://eynwufiwqeujayumyxkz.supabase.co/storage/v1/object/public/Voicecards/1812.m4a"
+        },
+
+        "d8Kr2VxF": {
+            number: "19",
+            title: "untitled 03",
+            audio: "https://eynwufiwqeujayumyxkz.supabase.co/storage/v1/object/public/Voicecards/19untitled03.m4a"
+        },
+
+        "g6Np5TwL": {
+            number: "20",
+            title: "proud",
+            audio: "https://eynwufiwqeujayumyxkz.supabase.co/storage/v1/object/public/Voicecards/20special6.aac"
+        },
+
+        "u3Zm8HqR": {
+            number: "21",
+            title: "happy",
+            audio: "https://eynwufiwqeujayumyxkz.supabase.co/storage/v1/object/public/Voicecards/21happy.m4a"
+        },
+
+        "e9Vc4KpW": {
+            number: "22",
+            title: "faithful",
+            audio: "https://eynwufiwqeujayumyxkz.supabase.co/storage/v1/object/public/Voicecards/22special7.m4a"
+        },
+
+        "y5Ft7LnD": {
+            number: "23",
+            title: "believe",
+            audio: "https://eynwufiwqeujayumyxkz.supabase.co/storage/v1/object/public/Voicecards/23believe.m4a"
+        },
+
+        "o2Jr6XsM": {
+            number: "24",
+            title: "best wishes",
+            audio: "https://eynwufiwqeujayumyxkz.supabase.co/storage/v1/object/public/Voicecards/24special8.m4a"
+        },
+
+        "i8Qw3ZkP": {
+            number: "25",
+            title: "untitled 04",
+            audio: "https://eynwufiwqeujayumyxkz.supabase.co/storage/v1/object/public/Voicecards/25untitled04.m4a"
+        },
+
+        "l4Yv9CnH": {
+            number: "26",
+            title: "em",
+            audio: "https://eynwufiwqeujayumyxkz.supabase.co/storage/v1/object/public/Voicecards/26em.m4a"
+        },
+
+        "n6Bx2RfT": {
+            number: "27",
+            title: "remind",
+            audio: "https://eynwufiwqeujayumyxkz.supabase.co/storage/v1/object/public/Voicecards/27remind.m4a"
+        },
+
+        "p9Hs5WmK": {
+            number: "28",
+            title: "anh",
+            audio: "https://eynwufiwqeujayumyxkz.supabase.co/storage/v1/object/public/Voicecards/28anh.m4a"
+        },
+
+        "q7Dc4JxV": {
+            number: "29",
+            title: "unsaid",
+            audio: "https://eynwufiwqeujayumyxkz.supabase.co/storage/v1/object/public/Voicecards/Realunsaid.m4a"
+        },
+
+        "r3Mk8YpL": {
+            number: "last",
+            title: "there is one more thing",
+            audio: "https://eynwufiwqeujayumyxkz.supabase.co/storage/v1/object/public/Voicecards/Reallasttt.m4a"
+        }
+
+    };
+
+
+    /* PIECES AUDIO PLAYER */
+
+    const piecesPlayer =
+        document.getElementById("pieces-audio-player");
+
+    const piecesNowPlaying =
+        document.getElementById("pieces-now-playing");
+
+    const pieceButtons =
+        document.querySelectorAll(".piece-play");
+
+
+    pieceButtons.forEach(button => {
+
+        button.addEventListener("click", () => {
+
+            const pieceToken =
+                button.dataset.token;
+
+            const pieceRecord =
+                records[pieceToken];
+
+            if (!pieceRecord) {
+                return;
+            }
+
+
+            piecesPlayer.src =
+                pieceRecord.audio;
+
+            piecesPlayer.load();
+
+
+            piecesPlayer.play().catch(() => {});
+
+
+            if (pieceRecord.number === "last") {
+
+                piecesNowPlaying.textContent =
+                    "last — " + pieceRecord.title;
+
+            } else {
+
+                piecesNowPlaying.textContent =
+                    pieceRecord.number +
+                    " — " +
+                    pieceRecord.title;
+
+            }
+
+
+            pieceButtons.forEach(item => {
+                item.classList.remove("playing");
+            });
+
+
+            button.classList.add("playing");
+
+        });
+
+    });
+
+
+    piecesPlayer.addEventListener("ended", () => {
+
+        pieceButtons.forEach(button => {
+            button.classList.remove("playing");
+        });
+
+    });
+
+</script>
+
+</body>
 </html>
