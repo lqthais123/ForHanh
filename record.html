@@ -253,18 +253,37 @@
         }
 
 
-        .back-link {
+        /* =========================
+           NAVIGATION
+           ========================= */
+
+        .piece-navigation {
 
             position: absolute;
 
             left: 50%;
-
             bottom: 28px;
 
             transform:
                 translateX(-50%);
 
             z-index: 2;
+
+            display: flex;
+
+            align-items: center;
+            justify-content: center;
+
+            gap: 28px;
+
+            width: max-content;
+
+            max-width: calc(100% - 44px);
+        }
+
+
+        .piece-nav-back,
+        .piece-nav-next {
 
             color: #99938a;
 
@@ -291,12 +310,29 @@
                 forwards;
 
             transition:
-                color 0.3s ease;
+                color 0.3s ease,
+                transform 0.3s ease;
         }
 
 
-        .back-link:hover {
+        .piece-nav-back:hover,
+        .piece-nav-next:hover {
+
             color: #4f4b45;
+        }
+
+
+        .piece-nav-back:hover {
+
+            transform:
+                translateX(-2px);
+        }
+
+
+        .piece-nav-next:hover {
+
+            transform:
+                translateX(2px);
         }
 
 
@@ -413,17 +449,23 @@
         }
 
 
-        body.last-record .back-link {
+        body.last-record .piece-nav-back,
+        body.last-record .piece-nav-next {
 
             color: #8f8c86;
         }
 
 
-        body.last-record .back-link:hover {
+        body.last-record .piece-nav-back:hover,
+        body.last-record .piece-nav-next:hover {
 
             color: #d8d0c0;
         }
 
+
+        /* =========================
+           MOBILE
+           ========================= */
 
         @media (max-width: 600px) {
 
@@ -475,9 +517,11 @@
             }
 
 
-            .back-link {
+            .piece-navigation {
 
                 bottom: 23px;
+
+                gap: 20px;
             }
 
         }
@@ -490,7 +534,8 @@
             .record-divider,
             .audio-wrapper,
             .record-note,
-            .back-link {
+            .piece-nav-back,
+            .piece-nav-next {
 
                 opacity: 1;
 
@@ -556,12 +601,28 @@
         </div>
 
 
-        <a
-            class="back-link"
-            href="pieces.html"
-        >
-            BACK
-        </a>
+        <!-- NAVIGATION -->
+
+        <div class="piece-navigation">
+
+            <a
+                href="pieces.html"
+                class="piece-nav-back"
+            >
+                ← BACK
+            </a>
+
+
+            <a
+                id="next-piece-link"
+                href="#"
+                class="piece-nav-next"
+                style="display: none;"
+            >
+                CONTINUE →
+            </a>
+
+        </div>
 
 
     </main>
@@ -572,18 +633,29 @@
 
     <script>
 
+        // ================================
+        // CURRENT TOKEN
+        // ================================
+
         const currentParams =
             new URLSearchParams(
                 window.location.search
             );
 
+
+        // Support both ?id= and ?token=
         const currentToken =
+            currentParams.get("id") ||
             currentParams.get("token");
 
 
         const currentRecord =
             records[currentToken];
 
+
+        // ================================
+        // RECORD NOTE
+        // ================================
 
         if (currentRecord) {
 
@@ -595,27 +667,37 @@
 
             if (recordNote) {
 
-                if (currentRecord.number === "last") {
+                if (
+                    currentRecord.number === "last"
+                ) {
 
                     recordNote.textContent =
                         "when you're ready";
 
-                } else if (currentRecord.title === "last (demo)") {
+                } else if (
+                    currentRecord.title === "last (demo)"
+                ) {
 
                     recordNote.textContent =
                         "another version";
 
-                } else if (currentRecord.title === "continue") {
+                } else if (
+                    currentRecord.title === "continue"
+                ) {
 
                     recordNote.textContent =
                         "what if we continue";
 
-                } else if (currentRecord.title === "stop") {
+                } else if (
+                    currentRecord.title === "stop"
+                ) {
 
                     recordNote.textContent =
                         "what if we stop here";
 
-                } else if (currentRecord.title === "the end") {
+                } else if (
+                    currentRecord.title === "the end"
+                ) {
 
                     recordNote.textContent =
                         "the end";
@@ -624,6 +706,59 @@
 
             }
 
+        }
+
+
+        // ================================
+        // HIDDEN EPILOGUE NAVIGATION
+        // ================================
+
+        const nextLinks = {
+
+            "v8Kp2DmL": {
+                text: "continue →",
+                token: "c6Rn4TxQ"
+            },
+
+            "c6Rn4TxQ": {
+                text: "stop →",
+                token: "s9Jf3WpH"
+            },
+
+            "s9Jf3WpH": {
+                text: "the end →",
+                token: "e2Vz7YkM"
+            }
+
+        };
+
+
+        const nextPieceLink =
+            document.getElementById(
+                "next-piece-link"
+            );
+
+
+        if (
+            nextPieceLink &&
+            nextLinks[currentToken]
+        ) {
+
+            const next =
+                nextLinks[currentToken];
+
+
+            nextPieceLink.href =
+                "record.html?id=" +
+                next.token;
+
+
+            nextPieceLink.textContent =
+                next.text;
+
+
+            nextPieceLink.style.display =
+                "inline-block";
         }
 
     </script>
