@@ -218,10 +218,27 @@ const records = {
 // RECORD PAGE
 // ================================
 
-const params = new URLSearchParams(window.location.search);
-const token = params.get("id");
+// Support both:
+// ?id=TOKEN
+// ?token=TOKEN
+//
+// This keeps old QR codes working.
 
-const record = records[token];
+const params = new URLSearchParams(
+    window.location.search
+);
+
+const token =
+    params.get("id") ||
+    params.get("token");
+
+const record =
+    records[token];
+
+
+// ================================
+// LOAD RECORD
+// ================================
 
 if (record) {
 
@@ -236,27 +253,37 @@ if (record) {
 
 
     if (numberElement) {
-        numberElement.textContent = record.number;
+        numberElement.textContent =
+            record.number;
     }
 
 
     if (titleElement) {
-        titleElement.textContent = record.title;
+        titleElement.textContent =
+            record.title;
     }
 
 
     if (audioPlayer) {
-        audioPlayer.src = record.audio;
+
+        audioPlayer.src =
+            record.audio;
+
+        audioPlayer.load();
     }
 
 
-    // Special note for Hug
+    // ================================
+    // SPECIAL NOTE — HUG
+    // ================================
+
     if (record.number === "06") {
 
         const noteElement =
             document.querySelector(".record-note");
 
         if (noteElement) {
+
             noteElement.textContent =
                 "when you need a hug";
         }
@@ -283,7 +310,7 @@ if (record) {
 
 
 // ================================
-// LAST / EPILOGUE STYLE
+// LAST / HIDDEN EPILOGUE STYLE
 // ================================
 
 const epilogueTokens = [
@@ -294,78 +321,20 @@ const epilogueTokens = [
     "e2Vz7YkM"
 ];
 
+
 if (epilogueTokens.includes(token)) {
-    document.body.classList.add("last-record");
+
+    document.body.classList.add(
+        "last-record"
+    );
 }
 
 
 // ================================
-// PIECES PAGE PLAYER
+// END
 // ================================
-
-const piecesPlayer =
-    document.getElementById("pieces-audio-player");
-
-const piecesNowPlaying =
-    document.getElementById("pieces-now-playing");
-
-const pieceButtons =
-    document.querySelectorAll(".piece-play");
-
-
-if (piecesPlayer && pieceButtons.length > 0) {
-
-    pieceButtons.forEach(button => {
-
-        button.addEventListener("click", () => {
-
-            const pieceToken =
-                button.dataset.token;
-
-            const pieceRecord =
-                records[pieceToken];
-
-            if (!pieceRecord) {
-                return;
-            }
-
-
-            piecesPlayer.src =
-                pieceRecord.audio;
-
-            piecesPlayer.load();
-
-            piecesPlayer.play().catch(() => {});
-
-
-            if (piecesNowPlaying) {
-
-                piecesNowPlaying.textContent =
-                    pieceRecord.number === "last"
-                        ? "last — " + pieceRecord.title
-                        : pieceRecord.number +
-                          " — " +
-                          pieceRecord.title;
-            }
-
-
-            pieceButtons.forEach(item => {
-                item.classList.remove("playing");
-            });
-
-            button.classList.add("playing");
-
-        });
-
-    });
-
-
-    piecesPlayer.addEventListener("ended", () => {
-
-        pieceButtons.forEach(button => {
-            button.classList.remove("playing");
-        });
-
-    });
-
-}
+//
+// No pieces-page player code here.
+// Each PLAY button now opens its own
+// record.html?id=TOKEN page.
+// ================================
